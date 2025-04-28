@@ -32,18 +32,17 @@ async def process_password(message: Message, state: FSMContext):
 
         if not user:
             await message.answer(_("❌ No such user found!"))
+            await state.set_state(LoginStates.username)
 
-        if user and message.text == user.password:
+        elif message.text.strip() != user.password:
+            await message.answer(_("❌ Invalid password! Please try again."))
+            await state.set_state(LoginStates.password)
+
+        else:
             rkb = ReplyKeyboardBuilder()
             rkb.add(KeyboardButton(text=_("🏠 Main menu")))
             rkb.adjust(1,1)
             rkb = rkb.as_markup(resize_keyboard=True)
+            await state.set_state()
             await message.answer(_("✅ You have successfully logged in."), reply_markup=rkb)
-
-        else:
-            await message.answer(_("❌ Invalid password! Please try again."))
-            await state.set_state(LoginStates.password)
-
-        await state.clear()
-
-
+            await state.clear()

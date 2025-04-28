@@ -1,72 +1,37 @@
-from aiogram import F
-from aiogram.fsm.context import FSMContext
-from aiogram.types import Message, KeyboardButton
-from aiogram.utils.keyboard import ReplyKeyboardBuilder
 from aiogram.utils.i18n import gettext as _, lazy_gettext as __
+from bot.buttons.navigation import get_add_view_keyboard, get_main_menu_keyboard
+from bot.states import SectorStates, MainMenu
+from bot.handler.lang import *
 
-from bot.dispatcher import dp
-from bot.states import SectorStates
 
-
-@dp.message(SectorStates.password, F.text == __("🏠 Main menu"))
+@dp.message((F.state.in_([MainMenu.photo, MainMenu.video, MainMenu.document, MainMenu.letter, MainMenu.main])),
+            F.text.in_([__("⬅️ Back"), __("🏠 Main menu")]))
 async def main_menu_handler(message: Message, state: FSMContext):
-    rkb = ReplyKeyboardBuilder()
-    rkb.add(
-        KeyboardButton(text=_("🖼 Photos")),
-        KeyboardButton(text=_("🎥 Videos")),
-        KeyboardButton(text=_("📄 Documents")),
-        KeyboardButton(text=_("✉️ Letters")))
-    rkb.adjust(2,2)
-    rkb = rkb.as_markup(resize_keyboard=True)
     await state.set_state(SectorStates.main_menu)
-    await message.answer(_("🏠 Main menu"), reply_markup=rkb)
+    await message.answer(_("🏠 Main menu"), reply_markup=get_main_menu_keyboard())
 
 
 @dp.message(SectorStates.main_menu, F.text == __("🖼 Photos"))
 async def photos_handler(message: Message, state: FSMContext):
-    rkb = ReplyKeyboardBuilder()
-    rkb.add(
-        KeyboardButton(text=_("⏬ Add")),
-        KeyboardButton(text=_("👀 View")))
-    rkb.adjust(2)
-    rkb = rkb.as_markup(resize_keyboard=True)
-    await state.set_state(SectorStates.main_menu)
-    await message.answer(_("🖼 Photos"), reply_markup=rkb)
+    await state.set_state(MainMenu.photo)
+    await message.answer(_("🖼 Photos"), reply_markup=get_add_view_keyboard())
 
 
 @dp.message(SectorStates.main_menu, F.text == __("🎥 Videos"))
-async def photos_handler(message: Message, state: FSMContext):
-    rkb = ReplyKeyboardBuilder()
-    rkb.add(
-        KeyboardButton(text=_("⏬ Add")),
-        KeyboardButton(text=_("👀 View")))
-    rkb.adjust(2)
-    rkb = rkb.as_markup(resize_keyboard=True)
-    await state.set_state(SectorStates.main_menu)
-    await message.answer(_("🎥 Videos"), reply_markup=rkb)
+async def videos_handler(message: Message, state: FSMContext):
+    await state.set_state(MainMenu.video)
+    await message.answer(_("🎥 Videos"), reply_markup=get_add_view_keyboard())
 
 
 @dp.message(SectorStates.main_menu, F.text == __("📄 Documents"))
-async def photos_handler(message: Message, state: FSMContext):
-    rkb = ReplyKeyboardBuilder()
-    rkb.add(
-        KeyboardButton(text=_("⏬ Add")),
-        KeyboardButton(text=_("👀 View")))
-    rkb.adjust(2)
-    rkb = rkb.as_markup(resize_keyboard=True)
-    await state.set_state(SectorStates.main_menu)
-    await message.answer(_("📄 Documents"), reply_markup=rkb)
+async def documents_handler(message: Message, state: FSMContext):
+    await state.set_state(MainMenu.document)
+    await message.answer(_("📄 Documents"), reply_markup=get_add_view_keyboard())
 
 
 @dp.message(SectorStates.main_menu, F.text == __("✉️ Letters"))
-async def photos_handler(message: Message, state: FSMContext):
-    rkb = ReplyKeyboardBuilder()
-    rkb.add(
-        KeyboardButton(text=_("⏬ Add")),
-        KeyboardButton(text=_("👀 View")))
-    rkb.adjust(2)
-    rkb = rkb.as_markup(resize_keyboard=True)
-    await state.set_state(SectorStates.main_menu)
-    await message.answer(_("✉️ Letters"), reply_markup=rkb)
+async def letters_handler(message: Message, state: FSMContext):
+    await state.set_state(MainMenu.letter)
+    await message.answer(_("✉️ Letters"), reply_markup=get_add_view_keyboard())
 
 
