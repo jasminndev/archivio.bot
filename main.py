@@ -1,25 +1,21 @@
 import asyncio
-import logging
 import sys
-
+import os
 from aiogram import Bot
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
-from aiogram.utils.i18n import FSMI18nMiddleware, I18n
-from bot.handler import *
-from bot.dispatcher import dp
-from os import getenv
 from dotenv import load_dotenv
+
+from bot.handler import *
+from bot.handler.photo import router_add_photo
 
 load_dotenv()
 
-TOKEN = getenv('TOKEN')
-
+TOKEN = os.getenv('TOKEN')
 
 
 async def main() -> None:
-    i18n = I18n(path='locales', default_locale='en', domain='messages')
-    dp.update.middleware(FSMI18nMiddleware(i18n))
+    dp.include_router(router_add_photo)
     bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
     await dp.start_polling(bot)
 

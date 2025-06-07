@@ -1,8 +1,8 @@
 from aiogram import F
 from aiogram.fsm.context import FSMContext
 from aiogram.types import KeyboardButton, Message
-from aiogram.utils.keyboard import ReplyKeyboardBuilder
 from aiogram.utils.i18n import gettext as _, lazy_gettext as __
+from aiogram.utils.keyboard import ReplyKeyboardBuilder
 
 from bot.dispatcher import dp
 from bot.states import SectorStates
@@ -14,7 +14,7 @@ def get_add_view_keyboard():
         KeyboardButton(text=_("⏬ Add")),
         KeyboardButton(text=_("👀 View")),
         KeyboardButton(text=_("⬅️ Back")))
-    rkb.adjust(2,1)
+    rkb.adjust(2, 1)
     return rkb.as_markup(resize_keyboard=True)
 
 

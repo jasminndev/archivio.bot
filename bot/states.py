@@ -6,6 +6,13 @@ class SectorStates(StatesGroup):
     password = State()
     confirm_password = State()
     main_menu = State()
+    photo = State()
+    video = State()
+    document = State()
+    letter = State()
+    main = State()
+    add_photo = State()
+    start = State()
 
 
 class LoginStates(StatesGroup):
@@ -15,10 +22,3 @@ class LoginStates(StatesGroup):
 class LanguageStates(StatesGroup):
     language = State()
     lang = State()
-
-class MainMenu(StatesGroup):
-    photo = State()
-    video = State()
-    document = State()
-    letter = State()
-    main = State()
