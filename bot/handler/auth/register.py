@@ -5,6 +5,7 @@ from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 from aiogram.utils.i18n import gettext as _
+from sqlalchemy.orm import sessionmaker
 
 from bot.dispatcher import dp
 from bot.handler.functions import hash_password

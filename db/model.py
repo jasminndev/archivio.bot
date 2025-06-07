@@ -3,8 +3,7 @@ from datetime import datetime
 from os import getenv
 
 from dotenv import load_dotenv
-from sqlalchemy import String, create_engine, BIGINT, TIMESTAMP, text, Text
-from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy import String, create_engine, BIGINT, TIMESTAMP, Text, func
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, sessionmaker
 
 load_dotenv()
@@ -36,83 +35,72 @@ class InfoUser(Base):
     tg_username: Mapped[str] = mapped_column(String(100))
     first_name: Mapped[str] = mapped_column(String(255), nullable=False)
     last_name: Mapped[str] = mapped_column(String(255), nullable=True)
-    started_at: Mapped[datetime] = mapped_column(TIMESTAMP, server_default=text(tz))
+    started_at: Mapped[datetime] = mapped_column(TIMESTAMP(timezone=True), server_default=func.now())
 
 
 class Photo(Base):
     __tablename__ = "photos"
 
     id: Mapped[int] = mapped_column(BIGINT, primary_key=True, autoincrement=True)
-    user_id: Mapped[int] = mapped_column(BIGINT, primary_key=True)
+    user_id: Mapped[int] = mapped_column(BIGINT, nullable=False)
     file_id: Mapped[str] = mapped_column(String(1000), nullable=False)
-    created_at: Mapped[datetime] = mapped_column(TIMESTAMP, server_default=text(tz))
+    created_at: Mapped[datetime] = mapped_column(TIMESTAMP(timezone=True), server_default=func.now())
 
 
 class Video(Base):
     __tablename__ = "videos"
 
     id: Mapped[int] = mapped_column(BIGINT, primary_key=True, autoincrement=True)
-    user_id: Mapped[int] = mapped_column(BIGINT, primary_key=True)
+    user_id: Mapped[int] = mapped_column(BIGINT, nullable=False)
     file_id: Mapped[str] = mapped_column(String(1000), nullable=False)
-    created_at: Mapped[datetime] = mapped_column(TIMESTAMP, server_default=text(tz))
+    created_at: Mapped[datetime] = mapped_column(TIMESTAMP(timezone=True), server_default=func.now())
 
 
 class Document(Base):
     __tablename__ = "documents"
 
     id: Mapped[int] = mapped_column(BIGINT, primary_key=True, autoincrement=True)
-    user_id: Mapped[int] = mapped_column(BIGINT, primary_key=True)
+    user_id: Mapped[int] = mapped_column(BIGINT, nullable=False)
     file_id: Mapped[str] = mapped_column(String(1000), nullable=False)
-    created_at: Mapped[datetime] = mapped_column(TIMESTAMP, server_default=text(tz))
+    created_at: Mapped[datetime] = mapped_column(TIMESTAMP(timezone=True), server_default=func.now())
 
 
 class Letter(Base):
     __tablename__ = "letters"
 
     id: Mapped[int] = mapped_column(BIGINT, primary_key=True, autoincrement=True)
-    user_id: Mapped[int] = mapped_column(BIGINT, primary_key=True)
+    user_id: Mapped[int] = mapped_column(BIGINT, nullable=False)
     content: Mapped[str] = mapped_column(Text, nullable=False)
-    created_at: Mapped[datetime] = mapped_column(TIMESTAMP, server_default=text(tz))
+    created_at: Mapped[datetime] = mapped_column(TIMESTAMP(timezone=True), server_default=func.now())
 
 
-async def save_photo(db: AsyncSession, user_id: int, file_id: str):
-    photo = Photo(user_id=user_id, file_id=file_id)
-    db.add(photo)
-    await db.commit()
-    await db.refresh(photo)
-    return photo
+class Audio(Base):
+    __tablename__ = "audios"
+
+    id: Mapped[int] = mapped_column(BIGINT, primary_key=True, autoincrement=True)
+    user_id: Mapped[int] = mapped_column(BIGINT, nullable=False)
+    file_id: Mapped[str] = mapped_column(String(1000), nullable=False)
+    created_at: Mapped[datetime] = mapped_column(TIMESTAMP(timezone=True), server_default=func.now())
 
 
-async def save_video(db: AsyncSession, user_id: int, file_id: str):
-    video = Video(user_id=user_id, file_id=file_id)
-    db.add(video)
-    await db.commit()
-    await db.refresh(video)
-    return video
+class Voice(Base):
+    __tablename__ = "voices"
+
+    id: Mapped[int] = mapped_column(BIGINT, primary_key=True, autoincrement=True)
+    user_id: Mapped[int] = mapped_column(BIGINT, nullable=False)
+    file_id: Mapped[str] = mapped_column(String(1000), nullable=False)
+    created_at: Mapped[datetime] = mapped_column(TIMESTAMP(timezone=True), server_default=func.now())
 
 
-async def save_document(db: AsyncSession, user_id: int, file_id: str):
-    document = Document(user_id=user_id, file_id=file_id)
-    db.add(document)
-    await db.commit()
-    await db.refresh(document)
-    return document
+class Contact(Base):
+    __tablename__ = "contacts"
 
-
-async def save_letter(db: AsyncSession, user_id: int, content: str):
-    letter = Letter(user_id=user_id, content=content)
-    db.add(letter)
-    await db.commit()
-    await db.refresh(letter)
-    return letter
-
-
-async def get_user_photos(db: AsyncSession, user_id: int):
-    from sqlalchemy import select
-
-    stmt = select(Photo).where(Photo.user_id == user_id).order_by(Photo.created_at.desc())
-    result = await db.execute(stmt)
-    return result.scalars().all()
+    id: Mapped[int] = mapped_column(BIGINT, primary_key=True, autoincrement=True)
+    user_id: Mapped[int] = mapped_column(BIGINT, nullable=False)
+    phone_number: Mapped[str] = mapped_column(String, nullable=False)
+    first_name: Mapped[str] = mapped_column(String, nullable=False)
+    last_name: Mapped[str] = mapped_column(String, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(TIMESTAMP(timezone=True), server_default=func.now())
 
 
 Base.metadata.create_all(engine)

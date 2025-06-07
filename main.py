@@ -1,13 +1,13 @@
 import asyncio
-import sys
 import os
+import sys
+
 from aiogram import Bot
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
-from dotenv import load_dotenv
 
 from bot.handler import *
-from bot.handler.media_handler import router_add_photo
+from bot.handler.media_handler import router
 
 load_dotenv()
 
@@ -15,7 +15,7 @@ TOKEN = os.getenv('TOKEN')
 
 
 async def main() -> None:
-    dp.include_router(router_add_photo)
+    dp.include_router(router)
     bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
     await dp.start_polling(bot)
 
