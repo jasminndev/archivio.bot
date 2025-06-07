@@ -7,7 +7,7 @@ from aiogram.enums import ParseMode
 from dotenv import load_dotenv
 
 from bot.handler import *
-from bot.handler.photo import router_add_photo
+from bot.handler.media_handler import router_add_photo
 
 load_dotenv()
 
