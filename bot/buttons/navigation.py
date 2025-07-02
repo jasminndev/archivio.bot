@@ -1,6 +1,6 @@
 from aiogram import F
 from aiogram.fsm.context import FSMContext
-from aiogram.types import KeyboardButton, Message
+from aiogram.types import KeyboardButton, Message, ReplyKeyboardMarkup
 from aiogram.utils.i18n import gettext as _, lazy_gettext as __
 from aiogram.utils.keyboard import ReplyKeyboardBuilder
 
@@ -23,33 +23,41 @@ def build_keyboard(buttons: list[list[str]]) -> ReplyKeyboardBuilder:
 
 def get_add_view_keyboard():
     buttons = [
-        ["⏬ Add", "👀 View"],
-        ["⬅️ Back"]
+        [_("⏬ Add"), _("👀 View")],
+        [_("⬅️ Back")]
     ]
     return build_keyboard(buttons).as_markup(resize_keyboard=True)
 
 
 def get_main_menu_keyboard():
     buttons = [
-        ["🖼 Photos", "🎥 Videos"],
-        ["📄 Documents", "✉️ Letters"],
-        ["🎙 Voice", "🎵 Audio"],
-        ["👤 Contact"]
+        [_("🖼 Photos"), _("🎥 Videos")],
+        [_("📄 Documents"), _("✉️ Letters")],
+        [_("🎙 Voice"), _("🎵 Audio")],
+        [_("👤 Contact")],
+        [_("📞 Contact us")]
     ]
     return build_keyboard(buttons).as_markup(resize_keyboard=True)
 
 
+def add_done_keyboard():
+    return ReplyKeyboardMarkup(
+        keyboard=[[KeyboardButton(text=_('✅ Done'))]],
+        resize_keyboard=True
+    )
+
+
 def navigation_keyboard(include_back=False, include_cancel=False):
-    buttons = [["🏠 Main menu"]]
+    buttons = [[_("🏠 Main menu")]]
 
     if include_back:
-        buttons.append(["🔙 Back"])
+        buttons.append([_("🔙 Back")])
 
     if include_cancel:
-        buttons.append(["❌ Cancel"])
+        buttons.append([_("❌ Cancel")])
 
     return build_keyboard(buttons).as_markup(resize_keyboard=True)
 
 
 def get_back_keyboard():
-    return build_keyboard([["⬅️ Back"]]).as_markup(resize_keyboard=True)
+    return build_keyboard([[_("⬅️ Back")]]).as_markup(resize_keyboard=True)

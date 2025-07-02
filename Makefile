@@ -12,3 +12,9 @@ compile:
 
 update:
 	pybabel update -d locales -D messages -i locales/messages.pot
+
+mig:
+	alembic revision --autogenerate -m "create initial tables"
+
+head:
+	alembic upgrade head

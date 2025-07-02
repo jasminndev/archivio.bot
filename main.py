@@ -7,7 +7,7 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 
 from bot.handler import *
-from bot.handler.media_handler import router
+from bot.handler.media.photos import router
 
 load_dotenv()
 

@@ -7,21 +7,15 @@ from aiogram.types import Message, InlineKeyboardButton, CallbackQuery
 from aiogram.utils.i18n import gettext as _
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
+from bot.buttons.constants import languages, map_lang
 from bot.dispatcher import dp, i18n
-from bot.handler import session
 from bot.states import LanguageStates, SectorStates
-from db.model import InfoUser
+from db.models import InfoUser
 
 logger = logging.getLogger(__name__)
 
 
 async def show_language_selection(message: Message, state: FSMContext) -> None:
-    languages = [
-        ("🇬🇧 English", "lang_en"),
-        ("🇷🇺 Русский", "lang_ru"),
-        ("🇩🇪 Deutsch", "lang_de"),
-        ("🇺🇿 O'zbek", "lang_uz"),
-    ]
     keyboard = InlineKeyboardBuilder()
     for text, callback in languages:
         keyboard.add(
@@ -36,27 +30,18 @@ async def show_language_selection(message: Message, state: FSMContext) -> None:
 async def command_start_handler(message: Message, state: FSMContext) -> None:
     await show_language_selection(message, state)
     user_id = message.chat.id
-    user = session.get(InfoUser, user_id)
+    user = await InfoUser.filter(user_id=user_id)
     if not user:
-        user = InfoUser(
+        await InfoUser.create(
             user_id=user_id,
             tg_username=message.from_user.username,
             first_name=message.from_user.first_name,
             last_name=message.from_user.last_name,
         )
-        session.add(user)
-        session.commit()
 
 
 @dp.callback_query(F.data.startswith("lang"))
 async def lang_selected_handler(callback: CallbackQuery, state: FSMContext):
-    map_lang = {
-        "lang_en": 'en',
-        "lang_ru": 'ru',
-        "lang_de": 'de',
-        "lang_uz": 'uz'
-    }
-
     if callback.data == "lang_":
         await callback.message.delete()
         await show_language_selection(callback.message, state)

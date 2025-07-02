@@ -5,25 +5,20 @@ from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 from aiogram.utils.i18n import gettext as _
-from sqlalchemy.orm import sessionmaker
 
+from bot.buttons.functions import hash_password
 from bot.dispatcher import dp
-from bot.handler.functions import hash_password
 from bot.states import SectorStates
-from db.model import *
+from db.models import *
 
 logger = logging.getLogger(__name__)
 
 user_states = {}
-session = sessionmaker(engine)()
 
 
-def valid_username(username: str) -> bool:
-    try:
-        return session.query(User).filter_by(username=username).first() is not None
-    except Exception as e:
-        print(f"Database error: {e}")
-        return False
+async def valid_username(username: str) -> bool:
+    user = await User.filter(username=username)
+    return bool(user)
 
 
 def valid_password(password: str) -> bool:
@@ -33,7 +28,8 @@ def valid_password(password: str) -> bool:
 @dp.message(Command("register"))
 async def command_register(message: Message, state: FSMContext):
     user_id = message.chat.id
-    if session.get(User, user_id):
+    existing_user = await User.filter(user_id=user_id)
+    if existing_user:
         return await message.answer(_("✅ You are already registered!"))
 
     await state.set_state(SectorStates.username)
@@ -79,14 +75,12 @@ async def process_confirm_password(message: Message, state: FSMContext):
         return await message.answer(_("❌ Passwords do not match. Please try again."))
 
     try:
-        new_user = User(
+        await User.create(
             user_id=message.chat.id,
             username=data['username'],
             password=hash_password(data['password'])
         )
 
-        session.add(new_user)
-        session.commit()
     except Exception as e:
         logger.error(f"Error while creating a user: {e}")
         await message.answer(_("⚠️ An error occurred while registering. Please try again later."))

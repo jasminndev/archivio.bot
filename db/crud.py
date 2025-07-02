@@ -1,7 +1,7 @@
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from db.model import Photo, Video, Document, Letter, Audio, Voice, Contact
+from db.models import Photo, Video, Document, Letter, Audio, Voice, Contact
 
 
 async def save_photo(db: AsyncSession, user_id: int, file_id: str):

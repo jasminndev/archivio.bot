@@ -28,15 +28,15 @@ class SectorStates(StatesGroup):
     contact = State()
     add_contact = State()
 
-    main = State()
-    add_media = State()
-    start = State()
+    contact_us = State()
+
+    waiting_photos = State()
 
 
 class LoginStates(StatesGroup):
     username = State()
     password = State()
 
+
 class LanguageStates(StatesGroup):
-    language = State()
     lang = State()

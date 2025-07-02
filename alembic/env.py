@@ -7,7 +7,7 @@ from sqlalchemy import pool
 
 from alembic import context
 
-from db.model import ENGINE
+from db.models import ENGINE
 
 load_dotenv()
 
@@ -19,7 +19,7 @@ engine = os.getenv("ENGINE")
 
 config.set_main_option("sqlalchemy.url", ENGINE)
 
-from db.model import Base
+from db.models import Base
 
 target_metadata = Base.metadata
 
