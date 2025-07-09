@@ -13,8 +13,6 @@ from db.models import *
 
 logger = logging.getLogger(__name__)
 
-user_states = {}
-
 
 async def valid_username(username: str) -> bool:
     user = await User.filter(username=username)
@@ -28,7 +26,8 @@ def valid_password(password: str) -> bool:
 @dp.message(Command("register"))
 async def command_register(message: Message, state: FSMContext):
     user_id = message.chat.id
-    existing_user = await User.filter(user_id=user_id)
+    existing_user = await User.filter_one(user_id=user_id, username__not=None)
+
     if existing_user:
         return await message.answer(_("✅ You are already registered!"))
 
@@ -43,7 +42,7 @@ async def process_username(message: Message, state: FSMContext):
     if not (3 <= len(username) <= 20):
         return await message.answer(_("❌ Username must be between 3 and 20 characters."))
 
-    if valid_username(username):
+    if await valid_username(username):
         return await message.answer(_("❌ This username is already taken. Please choose another."))
 
     await state.update_data(username=username)
@@ -78,7 +77,10 @@ async def process_confirm_password(message: Message, state: FSMContext):
         await User.create(
             user_id=message.chat.id,
             username=data['username'],
-            password=hash_password(data['password'])
+            password=hash_password(data['password']),
+            tg_username=message.from_user.username,
+            first_name=message.from_user.first_name,
+            last_name=message.from_user.last_name
         )
 
     except Exception as e:

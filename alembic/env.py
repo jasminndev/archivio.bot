@@ -1,23 +1,20 @@
-import os
 from logging.config import fileConfig
 
+from alembic import context
 from dotenv import load_dotenv
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
-from alembic import context
-
-from db.models import ENGINE
+from db.config import DatabaseConfig
 
 load_dotenv()
 
-# this is the Alembic Config object, which provides
-# access to the values within the .ini file in use.
+db = DatabaseConfig()
+db_url = db.db_url.replace("asyncpg", "psycopg2")
+
 config = context.config
 
-engine = os.getenv("ENGINE")
-
-config.set_main_option("sqlalchemy.url", ENGINE)
+config.set_main_option("sqlalchemy.url", db_url)
 
 from db.models import Base
 

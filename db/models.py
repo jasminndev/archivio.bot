@@ -8,20 +8,14 @@ class User(TimeBasedModel):
     __tablename__ = "users"
 
     user_id: Mapped[int] = mapped_column(BIGINT, primary_key=True)
-    username: Mapped[str] = mapped_column(String(50), nullable=False)
-    password: Mapped[str] = mapped_column(String(100), nullable=False)
+    username: Mapped[str] = mapped_column(String(50), nullable=True)
+    password: Mapped[str] = mapped_column(String(100), nullable=True)
+    tg_username: Mapped[str] = mapped_column(String(100))
+    first_name: Mapped[str] = mapped_column(String(255), nullable=True)
+    last_name: Mapped[str] = mapped_column(String(255), nullable=True)
 
     def __repr__(self):
         return f"User(user_id={self.user_id}, username={self.username})"
-
-
-class InfoUser(TimeBasedModel):
-    __tablename__ = "info_users"
-
-    user_id: Mapped[int] = mapped_column(BIGINT, primary_key=True)
-    tg_username: Mapped[str] = mapped_column(String(100))
-    first_name: Mapped[str] = mapped_column(String(255), nullable=False)
-    last_name: Mapped[str] = mapped_column(String(255), nullable=True)
 
 
 class Photo(TimeBasedModel):

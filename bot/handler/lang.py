@@ -10,7 +10,7 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 from bot.buttons.constants import languages, map_lang
 from bot.dispatcher import dp, i18n
 from bot.states import LanguageStates, SectorStates
-from db.models import InfoUser
+from db.models import User
 
 logger = logging.getLogger(__name__)
 
@@ -30,14 +30,15 @@ async def show_language_selection(message: Message, state: FSMContext) -> None:
 async def command_start_handler(message: Message, state: FSMContext) -> None:
     await show_language_selection(message, state)
     user_id = message.chat.id
-    user = await InfoUser.filter(user_id=user_id)
+    user = await User.filter(user_id=user_id)
     if not user:
-        await InfoUser.create(
+        await User.create(
             user_id=user_id,
             tg_username=message.from_user.username,
             first_name=message.from_user.first_name,
             last_name=message.from_user.last_name,
         )
+
 
 
 @dp.callback_query(F.data.startswith("lang"))

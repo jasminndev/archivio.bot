@@ -88,7 +88,6 @@ class AbstractClass:
         result = await db.execute(query)
         return result.scalars().first()
 
-
     @classmethod
     async def get_by_photo_id(cls, photo_id):
         query = select(cls).where(cls.photo_id == photo_id)
@@ -138,7 +137,6 @@ class AbstractClass:
         await db.execute(query)
         await cls.commit()
 
-
     @classmethod
     async def delete(cls, _id: Optional[int]):
         query = sqlalchemy_delete(cls).where(cls.id == _id)
@@ -151,6 +149,20 @@ class AbstractClass:
         conditions = [getattr(cls, key) == value for key, value in kwargs.items()]
         query = (select(cls).where(and_(*conditions)))
         return (await db.execute(query)).scalars().all()
+
+    @classmethod
+    async def filter_one(cls, **kwargs):
+        conditions = []
+        for key, value in kwargs.items():
+            if "__not" in key:
+                real_key = key.split("__not")[0]
+                conditions.append(getattr(cls, real_key) != value)
+            else:
+                conditions.append(getattr(cls, key) == value)
+
+        query = select(cls).where(and_(*conditions))
+        result = await db.execute(query)
+        return result.scalars().first()
 
     async def save_model(self):
         db.add(self)
