@@ -9,6 +9,7 @@ class SectorStates(StatesGroup):
 
     photo = State()
     add_photo = State()
+    send_photo = State()
 
     video = State()
     add_video = State()
