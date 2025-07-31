@@ -29,11 +29,11 @@ async def show_language_selection(message: Message, state: FSMContext) -> None:
 @dp.message(CommandStart())
 async def command_start_handler(message: Message, state: FSMContext) -> None:
     await show_language_selection(message, state)
-    user_id = message.chat.id
-    user = await User.filter_one(user_id=user_id)
+    tg_id = str(message.chat.id)
+    user = await User.filter_one(tg_id=tg_id)
     if not user:
         await User.create(
-            user_id=user_id,
+            tg_id=tg_id,
             tg_username=message.from_user.username,
             first_name=message.from_user.first_name,
             last_name=message.from_user.last_name,

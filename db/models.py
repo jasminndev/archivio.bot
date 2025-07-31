@@ -7,7 +7,7 @@ from db.utils import TimeBasedModel, Base
 class User(TimeBasedModel):
     __tablename__ = "users"
 
-    user_id: Mapped[int] = mapped_column(BigInteger, unique=True, nullable=False)
+    tg_id: Mapped[int] = mapped_column(String(100), unique=True, nullable=False)
     username: Mapped[str] = mapped_column(String(100), unique=True, nullable=True)
     password: Mapped[str] = mapped_column(String(100), nullable=True)
     tg_username: Mapped[str] = mapped_column(String(100), nullable=True)
@@ -23,13 +23,13 @@ class User(TimeBasedModel):
     contacts: Mapped[list["Contact"]] = relationship("Contact", back_populates="user")
 
     def __repr__(self):
-        return f"User(user_id={self.user_id}, username={self.username})"
+        return f"User(tg_id={self.tg_id}, username={self.username})"
 
 
 class Photo(TimeBasedModel):
     __tablename__ = "photos"
 
-    user_id: Mapped[int] = mapped_column(ForeignKey("users.user_id"))
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
     user: Mapped["User"] = relationship("User", back_populates="photos")
     file_id: Mapped[str] = mapped_column(String(1000), nullable=False)
 
@@ -37,7 +37,7 @@ class Photo(TimeBasedModel):
 class Video(TimeBasedModel):
     __tablename__ = "videos"
 
-    user_id: Mapped[int] = mapped_column(ForeignKey("users.user_id"))
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
     user: Mapped["User"] = relationship("User", back_populates="videos")
     file_id: Mapped[str] = mapped_column(String(1000), nullable=False)
 
@@ -45,7 +45,7 @@ class Video(TimeBasedModel):
 class Document(TimeBasedModel):
     __tablename__ = "documents"
 
-    user_id: Mapped[int] = mapped_column(ForeignKey("users.user_id"))
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
     user: Mapped["User"] = relationship("User", back_populates="documents")
     file_id: Mapped[str] = mapped_column(String(1000), nullable=False)
 
@@ -53,7 +53,7 @@ class Document(TimeBasedModel):
 class Letter(TimeBasedModel):
     __tablename__ = "letters"
 
-    user_id: Mapped[int] = mapped_column(ForeignKey("users.user_id"))
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
     user: Mapped["User"] = relationship("User", back_populates="letters")
     content: Mapped[str] = mapped_column(Text, nullable=False)
 
@@ -61,7 +61,7 @@ class Letter(TimeBasedModel):
 class Audio(TimeBasedModel):
     __tablename__ = "audios"
 
-    user_id: Mapped[int] = mapped_column(ForeignKey("users.user_id"))
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
     user: Mapped["User"] = relationship("User", back_populates="audios")
     file_id: Mapped[str] = mapped_column(String(1000), nullable=False)
 
@@ -69,7 +69,7 @@ class Audio(TimeBasedModel):
 class Voice(TimeBasedModel):
     __tablename__ = "voices"
 
-    user_id: Mapped[int] = mapped_column(ForeignKey("users.user_id"))
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
     user: Mapped["User"] = relationship("User", back_populates="voices")
     file_id: Mapped[str] = mapped_column(String(1000), nullable=False)
 
@@ -77,7 +77,7 @@ class Voice(TimeBasedModel):
 class Contact(TimeBasedModel):
     __tablename__ = "contacts"
 
-    user_id: Mapped[int] = mapped_column(ForeignKey("users.user_id"))
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
     user: Mapped["User"] = relationship("User", back_populates="contacts")
     phone_number: Mapped[str] = mapped_column(String, nullable=False)
     first_name: Mapped[str] = mapped_column(String, nullable=False)

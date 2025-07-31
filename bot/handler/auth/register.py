@@ -25,8 +25,8 @@ async def valid_password(password: str) -> bool:
 
 @dp.message(Command("register"))
 async def command_register(message: Message, state: FSMContext):
-    user_id = message.chat.id
-    existing_user = await User.filter_one(user_id=user_id, username__not=None)
+    tg_id = str(message.chat.id)
+    existing_user = await User.filter_one(tg_id=tg_id, username__not=None)
 
     if existing_user:
         await message.answer(_("✅ You are already registered!"))
@@ -79,8 +79,8 @@ async def process_confirm_password(message: Message, state: FSMContext):
         return
 
     try:
-        user_id = message.chat.id
-        user = await User.filter_one(user_id=user_id)
+        tg_id = str(message.chat.id)
+        user = await User.filter_one(tg_id=tg_id)
         if user:
             await User.update(
                 _id=user.id,
@@ -90,7 +90,7 @@ async def process_confirm_password(message: Message, state: FSMContext):
         else:
             hashed = await hash_password(data['password'])
             await User.create(
-                user_id=user_id,
+                tg_id=tg_id,
                 username=data['username'],
                 password=hashed,
                 tg_username=message.from_user.username,

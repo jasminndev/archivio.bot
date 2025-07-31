@@ -61,10 +61,18 @@ async def handle_done_button(message: Message, state: FSMContext):
         await message.answer(_("❗️You didn't send photos!"))
         return
 
+    user_id = message.chat.id
     for file_id in photos:
-        await Photo.create(
-            file_id=file_id,
-        )
+        try:
+            photo = await Photo.create(
+                file_id=file_id,
+                id=user_id,
+            )
+            logger.info(f"Photo saved with file_id: {file_id}, user_id: {user_id}")
+        except Exception as e:
+            logger.error(f"Failed to save photo with file_id: {file_id}, error: {e}")
+            await message.answer(_("⚠️ An error occurred while saving a photo. Please try again."))
+            return
 
     await state.clear()
     await message.answer(
