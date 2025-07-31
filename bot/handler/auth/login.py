@@ -35,12 +35,12 @@ async def process_password(message: Message, state: FSMContext):
     user = users[0] if users else None
 
     if not user:
-        await message.answer(_("❌ No such user found! Please try again."))
+        await message.answer(_("❌ No such user found! Please try again. Enter a valid username."))
         await state.set_state(LoginStates.username)
         return
 
-    if not check_password(input_password, user.password):
-        await message.answer(_("❌ Invalid password! Please try again."))
+    if not await check_password(input_password, user.password):
+        await message.answer(_("❌ Invalid password! Please try again. Enter a valid password."))
         await state.set_state(LoginStates.password)
         return
 

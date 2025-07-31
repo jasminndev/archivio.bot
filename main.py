@@ -5,8 +5,12 @@ from aiogram import Bot
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 
+from bot.commands import set_bot_commands
 from bot.handler import *
 from bot.handler.media.photos import router
+
+# r = Redis()
+# redis = Redis
 
 load_dotenv()
 
@@ -16,6 +20,7 @@ TOKEN = os.getenv('TOKEN')
 async def main() -> None:
     dp.include_router(router)
     bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
+    await set_bot_commands(bot)
     await dp.start_polling(bot)
 
 

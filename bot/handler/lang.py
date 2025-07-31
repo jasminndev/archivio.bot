@@ -30,7 +30,7 @@ async def show_language_selection(message: Message, state: FSMContext) -> None:
 async def command_start_handler(message: Message, state: FSMContext) -> None:
     await show_language_selection(message, state)
     user_id = message.chat.id
-    user = await User.filter(user_id=user_id)
+    user = await User.filter_one(user_id=user_id)
     if not user:
         await User.create(
             user_id=user_id,
@@ -38,7 +38,6 @@ async def command_start_handler(message: Message, state: FSMContext) -> None:
             first_name=message.from_user.first_name,
             last_name=message.from_user.last_name,
         )
-
 
 
 @dp.callback_query(F.data.startswith("lang"))
@@ -71,4 +70,6 @@ async def lang_selected_handler(callback: CallbackQuery, state: FSMContext):
         await callback.message.edit_text(text=text, reply_markup=keyboard.as_markup())
         await state.set_state(SectorStates.main_menu)
     else:
+        await callback.message.delete()
+        await show_language_selection(callback.message, state)
         await callback.answer(_("Unknown language selection"), show_alert=True)

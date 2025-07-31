@@ -1,15 +1,16 @@
-from sqlalchemy import String, BIGINT, Text, ForeignKey, VARCHAR
+from sqlalchemy import String, Text, ForeignKey, BigInteger
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+
 from db.utils import TimeBasedModel, Base
 
 
 class User(TimeBasedModel):
     __tablename__ = "users"
 
-    user_id: Mapped[int] = mapped_column(VARCHAR(255), unique=True, nullable=False)
-    username: Mapped[str] = mapped_column(String(100), unique=True)
+    user_id: Mapped[int] = mapped_column(BigInteger, unique=True, nullable=False)
+    username: Mapped[str] = mapped_column(String(100), unique=True, nullable=True)
     password: Mapped[str] = mapped_column(String(100), nullable=True)
-    tg_username: Mapped[str] = mapped_column(String(100))
+    tg_username: Mapped[str] = mapped_column(String(100), nullable=True)
     first_name: Mapped[str] = mapped_column(String(255), nullable=True)
     last_name: Mapped[str] = mapped_column(String(255), nullable=True)
 
