@@ -32,7 +32,7 @@ def get_add_view_keyboard():
 def get_main_menu_keyboard():
     buttons = [
         [_("🖼 Photos"), _("🎥 Videos")],
-        [_("📄 Documents"), _("✉️ Letters")],
+        [_("📄 Documents"), _("✉️ Text messages")],
         [_("🎙 Voice messages"), _("🎵 Audios")],
         [_("👤 Contacts")],
         [_("📞 Contact us")]
