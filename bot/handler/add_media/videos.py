@@ -18,7 +18,6 @@ logger = logging.getLogger(__name__)
 
 @router_video.message(SectorStates.video, F.text == __("⏬ Add"))
 async def add_video_handler(message: Message, state: FSMContext):
-    logger.info(f"add_video_handler triggered for user {message.chat.id}")
     await message.answer(
         text=_("📸 Please send the videos you want to save. After finishing, click the '✅ Done' button!"),
         reply_markup=add_done_keyboard())
