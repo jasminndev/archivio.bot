@@ -79,8 +79,8 @@ class Contact(TimeBasedModel):
 
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
     user: Mapped["User"] = relationship("User", back_populates="contacts")
-    phone_number: Mapped[str] = mapped_column(String, nullable=False)
-    first_name: Mapped[str] = mapped_column(String, nullable=False)
+    phone_number: Mapped[str] = mapped_column(String, nullable=True)
+    first_name: Mapped[str] = mapped_column(String, nullable=True)
     last_name: Mapped[str] = mapped_column(String, nullable=True)
 
 
