@@ -33,8 +33,8 @@ def get_main_menu_keyboard():
     buttons = [
         [_("🖼 Photos"), _("🎥 Videos")],
         [_("📄 Documents"), _("✉️ Letters")],
-        [_("🎙 Voice"), _("🎵 Audio")],
-        [_("👤 Contact")],
+        [_("🎙 Voice messages"), _("🎵 Audios")],
+        [_("👤 Contacts")],
         [_("📞 Contact us")]
     ]
     return build_keyboard(buttons).as_markup(resize_keyboard=True)

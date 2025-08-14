@@ -41,7 +41,7 @@ async def handle_media_group_documents(messages: list[Message], state: FSMContex
     await state.update_data(documents=existing_documents + new_documents)
 
     await messages[-1].answer(
-        _("Videos saved. After finishing, click the '✅ Done' button!")
+        _("Documents saved. After finishing, click the '✅ Done' button!")
     )
 
 
@@ -54,7 +54,7 @@ async def handle_single_document(message: Message, state: FSMContext):
     await state.update_data(documents=documents)
 
     await message.answer(
-        _("✅ Video saved! You can send more or click the '✅ Done' button!")
+        _("✅ Document saved! You can send more or click the '✅ Done' button!")
     )
 
 
@@ -79,7 +79,7 @@ async def handle_done_button(message: Message, state: FSMContext):
                 file_id=file_id,
                 user_id=user_id,
             )
-            logger.info(f"Video saved with file_id: {file_id}, user_id: {user_id}")
+            logger.info(f"Document saved with file_id: {file_id}, user_id: {user_id}")
         except Exception as e:
             logger.error(f"Failed to save document with file_id: {file_id}, error: {e}")
             await message.answer(_("⚠️ An error occurred while saving a document. Please try again."))
