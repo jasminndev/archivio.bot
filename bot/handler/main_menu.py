@@ -33,7 +33,7 @@ async def documents_handler(message: Message, state: FSMContext):
 
 @dp.message(SectorStates.main_menu, F.text == __("✉️ Text messages"))
 async def letters_handler(message: Message, state: FSMContext):
-    await state.set_state(SectorStates.letter)
+    await state.set_state(SectorStates.text_message)
     await message.answer(_("✉️ Text messages"), reply_markup=get_add_view_keyboard())
 
 

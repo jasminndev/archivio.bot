@@ -23,8 +23,8 @@ class SectorStates(StatesGroup):
     voice = State()
     add_voice = State()
 
-    letter = State()
-    add_letter = State()
+    text_message = State()
+    add_text_message = State()
 
     contact = State()
     add_contact = State()

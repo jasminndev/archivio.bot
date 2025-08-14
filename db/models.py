@@ -17,7 +17,7 @@ class User(TimeBasedModel):
     photos: Mapped[list["Photo"]] = relationship("Photo", back_populates="user")
     videos: Mapped[list["Video"]] = relationship("Video", back_populates="user")
     documents: Mapped[list["Document"]] = relationship("Document", back_populates="user")
-    letters: Mapped[list["Letter"]] = relationship("Letter", back_populates="user")
+    text_messages: Mapped[list["TextMessage"]] = relationship("TextMessage", back_populates="user")
     audios: Mapped[list["Audio"]] = relationship("Audio", back_populates="user")
     voices: Mapped[list["Voice"]] = relationship("Voice", back_populates="user")
     contacts: Mapped[list["Contact"]] = relationship("Contact", back_populates="user")
@@ -50,11 +50,11 @@ class Document(TimeBasedModel):
     file_id: Mapped[str] = mapped_column(String(1000), nullable=False)
 
 
-class Letter(TimeBasedModel):
-    __tablename__ = "letters"
+class TextMessage(TimeBasedModel):
+    __tablename__ = "text_messages"
 
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
-    user: Mapped["User"] = relationship("User", back_populates="letters")
+    user: Mapped["User"] = relationship("User", back_populates="text_messages")
     content: Mapped[str] = mapped_column(Text, nullable=False)
 
 
