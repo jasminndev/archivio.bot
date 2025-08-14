@@ -27,7 +27,7 @@ class RedisConfig:
 @dataclass
 class BotConfig:
     BOT_TOKEN: str = os.getenv("BOT_TOKEN")
-
+    TG_USERNAME: str = os.getenv("TG_USERNAME")
 
 @dataclass
 class Configuration:

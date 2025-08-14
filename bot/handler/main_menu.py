@@ -1,13 +1,9 @@
-import os
-
 from aiogram.types import InlineKeyboardMarkup
 from aiogram.utils.i18n import gettext as _, lazy_gettext as __
-from dotenv import load_dotenv
 
 from bot.buttons.navigation import get_add_view_keyboard, get_main_menu_keyboard
 from bot.handler.lang import *
-
-load_dotenv()
+from db.config import conf
 
 
 @dp.callback_query(SectorStates.contact_us, F.data == 'back')
@@ -62,7 +58,7 @@ async def letters_handler(message: Message, state: FSMContext):
 
 @dp.message(SectorStates.main_menu, F.text == __("📞 Contact us"))
 async def letters_handler(message: Message, state: FSMContext):
-    tg_username = os.getenv('TG_USERNAME')
+    tg_username = conf.bot.TG_USERNAME
     username_link = f"https://t.me/{tg_username}"
     ikb = InlineKeyboardMarkup(
         inline_keyboard=[

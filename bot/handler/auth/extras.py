@@ -16,3 +16,5 @@ async def command_delete_account(message: Message, state: FSMContext):
         return
     await User.delete(_id=user.id)
     await message.answer(_("🗑️ Your account has been deleted."))
+
+
