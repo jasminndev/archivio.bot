@@ -1,4 +1,4 @@
-from sqlalchemy import String, Text, ForeignKey, BigInteger
+from sqlalchemy import String, Text, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from db.utils import TimeBasedModel, Base

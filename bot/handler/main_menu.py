@@ -26,6 +26,7 @@ async def photos_handler(message: Message, state: FSMContext):
 @dp.message(SectorStates.main_menu, F.text == __("🎥 Videos"))
 async def videos_handler(message: Message, state: FSMContext):
     await state.set_state(SectorStates.video)
+    logger.info(f"State changed to SectorStates.video for user {message.chat.id}")
     await message.answer(_("🎥 Videos"), reply_markup=get_add_view_keyboard())
 
 

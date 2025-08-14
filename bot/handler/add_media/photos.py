@@ -9,18 +9,25 @@ from aiogram_media_group import media_group_handler
 
 from bot.buttons.navigation import add_done_keyboard, get_back_keyboard
 from bot.states import SectorStates
-from db.models import Photo
+from db.models import Photo, User
 
 router = Router()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-@router.message(F.text == __("⏬ Add"))
+@router.message(SectorStates.photo, F.text == __("⏬ Add"))
 async def add_photo_handler(message: Message, state: FSMContext):
     await message.answer(
         text=_("📸 Please send the photos you want to save. After finishing, click the '✅ Done' button!"),
         reply_markup=add_done_keyboard())
+    tg_id = str(message.chat.id)
+    user = await User.filter_one(tg_id=tg_id)
+    if user:
+        await state.set_state(SectorStates.add_photo)
+        await state.update_data(photos=[], user_id=user.id)
+    else:
+        await message.answer(_("⚠️ User not found. Please start with /start first."))
     await state.set_state(SectorStates.add_photo)
     await state.update_data(photos=[])
 
@@ -61,12 +68,17 @@ async def handle_done_button(message: Message, state: FSMContext):
         await message.answer(_("❗️You didn't send photos!"))
         return
 
-    user_id = message.chat.id
+    user_id = data.get("user_id")
+    if not user_id:
+        await message.answer(_("⚠️ User ID not found. Please start again."))
+        await state.clear()
+        return
+
     for file_id in photos:
         try:
             photo = await Photo.create(
                 file_id=file_id,
-                id=user_id,
+                user_id=user_id,
             )
             logger.info(f"Photo saved with file_id: {file_id}, user_id: {user_id}")
         except Exception as e:

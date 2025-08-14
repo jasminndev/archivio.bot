@@ -30,7 +30,6 @@ async def process_password(message: Message, state: FSMContext):
     username = data.get('username')
     input_password = message.text.strip()
 
-
     users = await User.filter(username=username)
     user = users[0] if users else None
 
@@ -50,4 +49,3 @@ async def process_password(message: Message, state: FSMContext):
 
     await message.answer(_("✅ You have successfully logged in."), reply_markup=markup)
     await state.clear()
-

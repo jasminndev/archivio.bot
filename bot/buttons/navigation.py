@@ -42,7 +42,8 @@ def get_main_menu_keyboard():
 
 def add_done_keyboard():
     return ReplyKeyboardMarkup(
-        keyboard=[[KeyboardButton(text=_('✅ Done'))]],
+        keyboard=[[KeyboardButton(text=_('✅ Done'))],
+                  [KeyboardButton(text=_('⬅️ Back'))]],
         resize_keyboard=True
     )
 
