@@ -43,10 +43,10 @@ async def letters_handler(message: Message, state: FSMContext):
     await message.answer(_("🎙 Voice messages"), reply_markup=get_add_view_keyboard())
 
 
-@dp.message(SectorStates.main_menu, F.text == __("🎵 Audio"))
+@dp.message(SectorStates.main_menu, F.text == __("🎵 Audios"))
 async def letters_handler(message: Message, state: FSMContext):
     await state.set_state(SectorStates.audio)
-    await message.answer(_("🎵 Audio"), reply_markup=get_add_view_keyboard())
+    await message.answer(_("🎵 Audios"), reply_markup=get_add_view_keyboard())
 
 
 @dp.message(SectorStates.main_menu, F.text == __("👤 Contact"))

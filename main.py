@@ -7,6 +7,7 @@ from aiogram.enums import ParseMode
 
 from bot.commands import set_bot_commands
 from bot.handler import *
+from bot.handler.add_media.audios import router_audio
 from bot.handler.add_media.documents import router_document
 from bot.handler.add_media.photos import router_photo
 from bot.handler.add_media.videos import router_video
@@ -25,6 +26,7 @@ async def main() -> None:
     dp.include_router(router_video)
     dp.include_router(router_document)
     dp.include_router(router_voice)
+    dp.include_router(router_audio)
     bot = Bot(token=BOT_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
     await set_bot_commands(bot)
     await dp.start_polling(bot)
