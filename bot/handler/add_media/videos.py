@@ -11,12 +11,12 @@ from bot.buttons.navigation import add_done_keyboard, get_back_keyboard
 from bot.states import SectorStates
 from db.models import User, Video
 
-router = Router()
+router_video = Router()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-@router.message(SectorStates.video, F.text == __("⏬ Add"))
+@router_video.message(SectorStates.video, F.text == __("⏬ Add"))
 async def add_video_handler(message: Message, state: FSMContext):
     logger.info(f"add_video_handler triggered for user {message.chat.id}")
     await message.answer(
@@ -32,12 +32,7 @@ async def add_video_handler(message: Message, state: FSMContext):
         await state.clear()
 
 
-@router.message(SectorStates.video)
-async def log_video_state(message: Message, state: FSMContext):
-    logger.info(f"Received message in SectorStates.video: {message.text}, state: {await state.get_state()}")
-
-
-@router.message(F.media_group_id, F.video)
+@router_video.message(F.media_group_id, F.video)
 @media_group_handler
 async def handle_media_group_videos(messages: list[Message], state: FSMContext):
     new_videos = [msg.video.file_id for msg in messages]
@@ -51,7 +46,7 @@ async def handle_media_group_videos(messages: list[Message], state: FSMContext):
     )
 
 
-@router.message(SectorStates.add_video, F.video, F.media_group_id is None)
+@router_video.message(SectorStates.add_video, F.video, F.media_group_id == None)
 async def handle_single_video(message: Message, state: FSMContext):
     file_id = message.video.file_id
     data = await state.get_data()
@@ -64,7 +59,7 @@ async def handle_single_video(message: Message, state: FSMContext):
     )
 
 
-@router.message(SectorStates.add_video, F.text == "✅ Done")
+@router_video.message(SectorStates.add_video, F.text == "✅ Done")
 async def handle_done_button(message: Message, state: FSMContext):
     data = await state.get_data()
     videos = data.get("videos", [])
@@ -98,6 +93,6 @@ async def handle_done_button(message: Message, state: FSMContext):
     )
 
 
-@router.message(SectorStates.add_video)
+@router_video.message(SectorStates.add_video)
 async def not_video_warning(message: Message):
     await message.answer("❗️Please, Send the videos or click the '✅ Done' button!")

@@ -7,7 +7,8 @@ from aiogram.enums import ParseMode
 
 from bot.commands import set_bot_commands
 from bot.handler import *
-from bot.handler.add_media.photos import router
+from bot.handler.add_media.photos import router_photo
+from bot.handler.add_media.videos import router_video
 from db.config import conf
 
 # r = Redis()
@@ -18,7 +19,8 @@ BOT_TOKEN = conf.bot.BOT_TOKEN
 
 
 async def main() -> None:
-    dp.include_router(router)
+    dp.include_router(router_photo)
+    dp.include_router(router_video)
     bot = Bot(token=BOT_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
     await set_bot_commands(bot)
     await dp.start_polling(bot)

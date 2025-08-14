@@ -11,12 +11,12 @@ from bot.buttons.navigation import add_done_keyboard, get_back_keyboard
 from bot.states import SectorStates
 from db.models import Photo, User
 
-router = Router()
+router_photo = Router()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-@router.message(SectorStates.photo, F.text == __("⏬ Add"))
+@router_photo.message(SectorStates.photo, F.text == __("⏬ Add"))
 async def add_photo_handler(message: Message, state: FSMContext):
     await message.answer(
         text=_("📸 Please send the photos you want to save. After finishing, click the '✅ Done' button!"),
@@ -32,7 +32,7 @@ async def add_photo_handler(message: Message, state: FSMContext):
     await state.update_data(photos=[])
 
 
-@router.message(F.media_group_id, F.photo)
+@router_photo.message(F.media_group_id, F.photo)
 @media_group_handler
 async def handle_media_group_photos(messages: list[Message], state: FSMContext):
     new_photos = [msg.photo[-1].file_id for msg in messages]
@@ -46,7 +46,7 @@ async def handle_media_group_photos(messages: list[Message], state: FSMContext):
     )
 
 
-@router.message(SectorStates.add_photo, F.photo, ~F.media_group_id)
+@router_photo.message(SectorStates.add_photo, F.photo, ~F.media_group_id)
 async def handle_single_photo(message: Message, state: FSMContext):
     file_id = message.photo[-1].file_id
     data = await state.get_data()
@@ -59,7 +59,7 @@ async def handle_single_photo(message: Message, state: FSMContext):
     )
 
 
-@router.message(SectorStates.add_photo, F.text == "✅ Done")
+@router_photo.message(SectorStates.add_photo, F.text == "✅ Done")
 async def handle_done_button(message: Message, state: FSMContext):
     data = await state.get_data()
     photos = data.get("photos", [])
@@ -93,6 +93,6 @@ async def handle_done_button(message: Message, state: FSMContext):
     )
 
 
-@router.message(SectorStates.add_photo)
+@router_photo.message(SectorStates.add_photo)
 async def not_photo_warning(message: Message):
     await message.answer("❗️Please, Send the photos or click the '✅ Done' button!")
