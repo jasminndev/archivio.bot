@@ -29,6 +29,15 @@ def get_add_view_keyboard():
     return build_keyboard(buttons).as_markup(resize_keyboard=True)
 
 
+def get_view_keyboard():
+    buttons = [
+        [_("Last week"), _("Last month")],
+        [_("Last 6 months"), _("All")],
+        [_("⬅️ Back")]
+    ]
+    return build_keyboard(buttons).as_markup(resize_keyboard=True)
+
+
 def get_main_menu_keyboard():
     buttons = [
         [_("🖼 Photos"), _("🎥 Videos")],

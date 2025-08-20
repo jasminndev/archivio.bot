@@ -120,7 +120,7 @@ class AbstractClass:
         object_ = objects.first()
         if object_:
             return object_[0]
-        else:
+        else:   
             return []
 
     @classmethod
