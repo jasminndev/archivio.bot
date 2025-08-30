@@ -15,6 +15,7 @@ from bot.handler.add_media.texts import router_text_message
 from bot.handler.add_media.videos import router_video
 from bot.handler.add_media.voices import router_voice
 from bot.handler.view_media.audios import router_view_audio
+from bot.handler.view_media.contacts import router_view_contact
 from bot.handler.view_media.documents import router_view_document
 from bot.handler.view_media.photos import router_view_photo
 from bot.handler.view_media.texts import router_view_text_message
@@ -43,6 +44,7 @@ async def main() -> None:
     dp.include_router(router_view_text_message)
     dp.include_router(router_view_voice)
     dp.include_router(router_view_audio)
+    dp.include_router(router_view_contact)
     bot = Bot(token=BOT_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
     await set_bot_commands(bot)
     await dp.start_polling(bot)
