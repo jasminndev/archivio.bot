@@ -151,6 +151,24 @@ class AbstractClass:
         return (await db.execute(query)).scalars().all()
 
     @classmethod
+    async def filter_views(cls, **kwargs):
+        conditions = []
+        for key, value in kwargs.items():
+            if "__" in key:
+                field, lookup = key.split("__", 1)
+                column = getattr(cls, field)
+                if lookup == "gte":
+                    conditions.append(column >= value)
+                elif lookup == "lte":
+                    conditions.append(column <= value)
+            else:
+                conditions.append(getattr(cls, key) == value)
+
+        query = select(cls).where(and_(*conditions)) if conditions else select(cls)
+        return (await db.execute(query)).scalars().all()
+
+
+    @classmethod
     async def filter_one(cls, **kwargs):
         conditions = []
         for key, value in kwargs.items():

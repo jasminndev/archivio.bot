@@ -14,7 +14,9 @@ from bot.handler.add_media.photos import router_photo
 from bot.handler.add_media.videos import router_video
 from bot.handler.add_media.voices import router_voice
 from bot.handler.add_media.texts import router_text_message
+from bot.handler.view_media.documents import router_view_document
 from bot.handler.view_media.photos import router_view_photo
+from bot.handler.view_media.videos import router_view_video
 from db.config import conf
 
 # r = Redis()
@@ -33,6 +35,8 @@ async def main() -> None:
     dp.include_router(router_contact)
     dp.include_router(router_text_message)
     dp.include_router(router_view_photo)
+    dp.include_router(router_view_video)
+    dp.include_router(router_view_document)
     bot = Bot(token=BOT_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
     await set_bot_commands(bot)
     await dp.start_polling(bot)

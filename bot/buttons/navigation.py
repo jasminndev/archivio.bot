@@ -43,8 +43,7 @@ def get_main_menu_keyboard():
         [_("🖼 Photos"), _("🎥 Videos")],
         [_("📄 Documents"), _("✉️ Text messages")],
         [_("🎙 Voice messages"), _("🎵 Audios")],
-        [_("👤 Contacts")],
-        [_("📞 Contact us")]
+        [_("👤 Contacts"), _("📞 Contact us")]
     ]
     return build_keyboard(buttons).as_markup(resize_keyboard=True)
 
