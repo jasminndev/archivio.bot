@@ -48,6 +48,15 @@ def get_main_menu_keyboard():
     return build_keyboard(buttons).as_markup(resize_keyboard=True, one_time_keyboard=True)
 
 
+def get_settings_keyboard():
+    buttons = [
+        [_("👤 Change username"), _("🔢 Change password")],
+        [_("🏳️ Change language"), _("🏌🏻‍♀️ Delete account")],
+        [_("🚫 Logout")],
+    ]
+    return build_keyboard(buttons).as_markup(resize_keyboard=True)
+
+
 def add_done_keyboard():
     return ReplyKeyboardMarkup(
         keyboard=[[KeyboardButton(text=_('✅ Done'))],
