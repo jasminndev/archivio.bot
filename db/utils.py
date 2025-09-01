@@ -5,7 +5,7 @@ from typing import Optional
 from sqlalchemy import BigInteger, DateTime, select, delete as sqlalchemy_delete, \
     update as sqlalchemy_update, inspect, and_, func
 from sqlalchemy.ext.asyncio import AsyncAttrs, create_async_engine, AsyncSession
-from sqlalchemy.orm import mapped_column, Mapped, DeclarativeBase, declared_attr, sessionmaker, selectinload
+from sqlalchemy.orm import mapped_column, Mapped, DeclarativeBase, declared_attr, sessionmaker
 
 from db.config import conf
 
@@ -77,53 +77,6 @@ class AbstractClass:
         return (await db.execute(select(cls).where(cls.chat_id == telegram_id_))).scalar()
 
     @classmethod
-    async def get_by_title(cls, title_):
-        query = select(cls).where(cls.title == title_)
-        result = await db.execute(query)
-        return result.scalars().first()
-
-    @classmethod
-    async def get_by_employer_id(cls, employer_id_):
-        query = select(cls).where(cls.employer_id == employer_id_)
-        result = await db.execute(query)
-        return result.scalars().first()
-
-    @classmethod
-    async def get_by_photo_id(cls, photo_id):
-        query = select(cls).where(cls.photo_id == photo_id)
-        objects = await db.execute(query)
-        object_ = objects.first()
-        if object_:
-            return object_[0]
-        else:
-            return []
-
-    @classmethod
-    async def get_by_chat_id(cls, chat_id):
-        query = (select(cls).
-                 options(selectinload(cls.works)).
-                 where(cls.chat_id == chat_id))
-        objects = await db.execute(query)
-        object_ = objects.first()
-        if object_:
-            return object_[0]
-        else:
-            return []
-
-    @classmethod
-    async def get_work_photos(cls, employer_id_):
-        query = (select(cls).
-                 options(selectinload(cls.photos)).
-                 order_by(cls.created_at.desc()).
-                 where(cls.employer_id == employer_id_))
-        objects = await db.execute(query)
-        object_ = objects.first()
-        if object_:
-            return object_[0]
-        else:   
-            return []
-
-    @classmethod
     async def create(cls, **kwargs):
         obj = cls(**kwargs)
         db.add(obj)
@@ -167,7 +120,6 @@ class AbstractClass:
         query = select(cls).where(and_(*conditions)) if conditions else select(cls)
         return (await db.execute(query)).scalars().all()
 
-
     @classmethod
     async def filter_one(cls, **kwargs):
         conditions = []
@@ -181,11 +133,6 @@ class AbstractClass:
         query = select(cls).where(and_(*conditions))
         result = await db.execute(query)
         return result.scalars().first()
-
-    async def save_model(self):
-        db.add(self)
-        await self.commit()
-        return self
 
 
 class BaseModel(AbstractClass, Base):

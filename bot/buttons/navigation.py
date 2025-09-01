@@ -40,12 +40,12 @@ def get_view_keyboard():
 
 def get_main_menu_keyboard():
     buttons = [
-        [_("🖼 Photos"), _("🎥 Videos")],
-        [_("📄 Documents"), _("✉️ Text messages")],
-        [_("🎙 Voice messages"), _("🎵 Audios")],
-        [_("👤 Contacts"), _("📞 Contact us")]
+        [_("🖼 Photos"), _("🎥 Videos"), _("📄 Documents")],
+        [_("✉️ Text messages"), _("🎵 Audios"), _("👤 Contacts")],
+        [_("🎙 Voice messages"), _("📞 Contact us")],
+        [_("⚙️ Settings")]
     ]
-    return build_keyboard(buttons).as_markup(resize_keyboard=True)
+    return build_keyboard(buttons).as_markup(resize_keyboard=True, one_time_keyboard=True)
 
 
 def add_done_keyboard():

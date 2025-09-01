@@ -12,6 +12,7 @@ async def set_bot_commands(bot: Bot):
         BotCommand(command='/help', description="Yordam"),
         BotCommand(command='/change_username', description="Usernameni o'zgartirish uchun"),
         BotCommand(command='/change_password', description="Parolni o'zgartirish uchun"),
+        BotCommand(command='/change_language', description="Tilni o'zgartirish uchun"),
     ]
 
     await bot.set_my_commands(commands=commands)
