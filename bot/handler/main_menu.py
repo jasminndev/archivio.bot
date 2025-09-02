@@ -65,6 +65,5 @@ async def letters_handler(message: Message, state: FSMContext):
             [InlineKeyboardButton(text=_("⬅️ Back"), callback_data='back')]
         ]
     )
-
     await state.set_state(SectorStates.contact_us)
     await message.answer(text=_("Click the button to contact ⬇️"), reply_markup=ikb)

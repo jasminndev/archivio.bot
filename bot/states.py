@@ -37,6 +37,8 @@ class SectorStates(StatesGroup):
 
     contact_us = State()
 
+    settings = State()
+
 
 class LoginStates(StatesGroup):
     username = State()
