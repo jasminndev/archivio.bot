@@ -71,10 +71,12 @@ class AbstractClass:
         return (await db.execute(select(cls))).scalars().all()
 
     @classmethod
-    async def get(cls, _id=None, telegram_id_=None):
+    async def get(cls, _id=None, tg_id=None):
         if _id:
             return (await db.execute(select(cls).where(cls.id == _id))).scalar()
-        return (await db.execute(select(cls).where(cls.chat_id == telegram_id_))).scalar()
+        if tg_id:
+            return (await db.execute(select(cls).where(cls.tg_id == tg_id))).scalar()
+        return None
 
     @classmethod
     async def create(cls, **kwargs):

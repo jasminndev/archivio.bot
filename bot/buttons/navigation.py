@@ -53,6 +53,7 @@ def get_settings_keyboard():
         [_("👤 Change username"), _("🔢 Change password")],
         [_("🏳️ Change language"), _("🏌🏻‍♀️ Delete account")],
         [_("🚫 Logout")],
+        [_("⬅️ Back")],
     ]
     return build_keyboard(buttons).as_markup(resize_keyboard=True)
 
