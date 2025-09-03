@@ -15,15 +15,24 @@ logger = logging.getLogger(__name__)
 
 
 async def valid_username(username: str) -> bool:
-    users = await User.filter(username=username)
-    return not users
+    try:
+        if not re.match(r'^[a-zA-Z0-9_]+$', username):
+            return False
+        if not (3 <= len(username) <= 20):
+            return False
+
+        existing_user = await User.filter_one(username=username)
+        return not existing_user
+    except Exception as e:
+        logging.error(f"Error checking username availability: {e}")
+        return False
 
 
 async def valid_password(password: str) -> bool:
     return bool(re.match(r"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$", password))
 
 
-@dp.message(Command("register"))
+@dp.message(Command(commands=["register"]))
 async def command_register(message: Message, state: FSMContext):
     tg_id = str(message.chat.id)
     existing_user = await User.filter_one(tg_id=tg_id, username__not=None)
@@ -39,10 +48,6 @@ async def command_register(message: Message, state: FSMContext):
 @dp.message(SectorStates.username)
 async def process_username(message: Message, state: FSMContext):
     username = message.text.strip()
-
-    if not (3 <= len(username) <= 20):
-        await message.answer(_("❌ Username must be between 3 and 20 characters."))
-        return
 
     if not await valid_username(username):
         await message.answer(_("❌ This username is already taken. Please choose another."))

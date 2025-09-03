@@ -1,7 +1,7 @@
 from aiogram.types import InlineKeyboardMarkup
 from aiogram.utils.i18n import gettext as _, lazy_gettext as __
 
-from bot.buttons.navigation import get_add_view_keyboard, get_main_menu_keyboard
+from bot.buttons.navigation import get_add_view_keyboard, get_main_menu_keyboard, get_settings_keyboard
 from bot.handler.lang import *
 from db.config import conf
 
@@ -67,3 +67,9 @@ async def letters_handler(message: Message, state: FSMContext):
     )
     await state.set_state(SectorStates.contact_us)
     await message.answer(text=_("Click the button to contact ⬇️"), reply_markup=ikb)
+
+
+@dp.message(SectorStates.main_menu, F.text == __("⚙️ Settings"))
+async def settings(message: Message, state: FSMContext):
+    await state.set_state(SectorStates.settings)
+    await message.answer(_("⚙️ Settings"), reply_markup=get_settings_keyboard())

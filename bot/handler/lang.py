@@ -1,7 +1,7 @@
 import logging
 
 from aiogram import html, F
-from aiogram.filters import CommandStart
+from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message, InlineKeyboardButton, CallbackQuery
 from aiogram.utils.i18n import gettext as _
@@ -26,7 +26,7 @@ async def show_language_selection(message: Message, state: FSMContext) -> None:
     await message.answer(text="Iltimos, tilni tanlang.", reply_markup=keyboard.as_markup())
 
 
-@dp.message(CommandStart())
+@dp.message(Command(commands=["start"]))
 async def command_start_handler(message: Message, state: FSMContext) -> None:
     await show_language_selection(message, state)
     tg_id = str(message.chat.id)
