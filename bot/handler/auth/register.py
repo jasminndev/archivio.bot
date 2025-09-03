@@ -53,7 +53,7 @@ async def process_username(message: Message, state: FSMContext):
         await message.answer(_("❌ This username is already taken. Please choose another."))
         return
 
-    await state.update_data(username=username)
+    await state.update_data(username=username.lower())
     await state.set_state(SectorStates.password)
     await message.answer(
         _("🔒 Create a password.\n\n"

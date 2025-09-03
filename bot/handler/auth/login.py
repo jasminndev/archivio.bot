@@ -18,7 +18,7 @@ async def command_login(message: Message, state: FSMContext):
 
 @dp.message(LoginStates.username)
 async def process_username(message: Message, state: FSMContext):
-    username = message.text.strip()
+    username = message.text.strip().lower()
     await state.update_data(username=username)
     await message.answer(_("🔒 Now, enter your password. "))
     await state.set_state(LoginStates.password)

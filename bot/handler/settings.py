@@ -1,5 +1,3 @@
-import re
-
 from aiogram import F, Router
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
@@ -7,6 +5,7 @@ from aiogram.utils.i18n import gettext as _, lazy_gettext as __
 
 from bot.handler import valid_username
 from bot.states import SectorStates
+from db.models import User
 
 router_username = Router()
 
@@ -21,25 +20,24 @@ async def change_username(message: Message, state: FSMContext):
 async def process_username(message: Message, state: FSMContext):
     username = message.text.strip()
 
-    if not (3 <= len(username) <= 20):
-        await message.answer(_("❌ Username must be between 3 and 20 characters."))
+    telegram_id = message.from_user.id
+    current_user = await User.get(telegram_id_=telegram_id)
+    if not current_user:
+        await message.answer(_("❌ User not found. Please contact support."))
         return
 
-    if not re.match(r'^[a-zA-Z0-9_]+$', username):
-        await message.answer(_("❌ Username can only contain letters, numbers, and underscores."))
-        return
-
-    data = await state.get_data()
-    current_username = data.get('current_username')
-    if username == current_username:
+    if username == current_user.username:
         await message.answer(_("❌ This is already your current username."))
         return
 
     if not await valid_username(username):
-        await message.answer(_("❌ This username is already taken. Please choose another."))
+        await message.answer(
+            _("❌ Username is invalid or already taken. It must be 3-20 characters, "
+              "contain only letters, numbers, and underscores.")
+        )
         return
 
-    await save_username(message.from_user.id, username)
+    await User.update(current_user.id, username=username)
 
     await message.answer(_("✅ Username changed successfully to {username}!").format(username=username))
     await state.set_state(SectorStates.settings)
