@@ -21,6 +21,7 @@ from bot.handler.view_media.photos import router_view_photo
 from bot.handler.view_media.texts import router_view_text_message
 from bot.handler.view_media.videos import router_view_video
 from bot.handler.view_media.voices import router_view_voice
+from bot.settings.lang import router_language
 from bot.settings.password import router_password
 from bot.settings.username import router_username
 from db.config import conf
@@ -49,6 +50,7 @@ async def main() -> None:
     dp.include_router(router_view_contact)
     dp.include_router(router_username)
     dp.include_router(router_password)
+    dp.include_router(router_language)
     bot = Bot(token=BOT_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
     await set_bot_commands(bot)
     await dp.start_polling(bot)

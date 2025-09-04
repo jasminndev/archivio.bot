@@ -53,6 +53,11 @@ async def lang_selected_handler(callback: CallbackQuery, state: FSMContext):
         await state.update_data(locale=code)
         i18n.ctx_locale.set(code)
 
+        tg_id = str(callback.from_user.id)
+        user = await User.filter_one(tg_id=tg_id)
+        if user:
+            await User.update(_id=user.id, locale=code)
+
         text = _(
             "🤖 Welcome, {full_name}!\n\n"
             "In this bot, you can store photos, videos, and documents, and even write letters that only you can read.\n\n"
