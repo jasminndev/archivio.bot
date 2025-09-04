@@ -29,7 +29,7 @@ async def valid_username(username: str) -> bool:
 
 
 async def valid_password(password: str) -> bool:
-    return bool(re.match(r"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$", password))
+    return bool(re.match(r"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{3,}$", password))
 
 
 @dp.message(Command(commands=["register"]))
@@ -69,31 +69,19 @@ async def process_password(message: Message, state: FSMContext):
             _("❌ Password must be at least 6 characters long and contain both letters and numbers. Please create another."))
         return
 
-    await state.update_data(password=password)
-    await state.set_state(SectorStates.confirm_password)
-    await message.answer(_("🔄 Please re-enter your password to confirm."))
-
-
-@dp.message(SectorStates.confirm_password)
-async def process_confirm_password(message: Message, state: FSMContext):
-    user_input = message.text.strip()
-    data = await state.get_data()
-
-    if user_input != data.get('password'):
-        await message.answer(_("❌ Passwords do not match. Please try again."))
-        return
-
     try:
         tg_id = str(message.chat.id)
+        data = await state.get_data()
+
         user = await User.filter_one(tg_id=tg_id)
         if user:
             await User.update(
                 _id=user.id,
                 username=data['username'],
-                password=await hash_password(data['password']),
+                password=await hash_password(password),
             )
         else:
-            hashed = await hash_password(data['password'])
+            hashed = await hash_password(password)
             await User.create(
                 tg_id=tg_id,
                 username=data['username'],

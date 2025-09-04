@@ -29,7 +29,7 @@ class User(TimeBasedModel):
 class Photo(TimeBasedModel):
     __tablename__ = "photos"
 
-    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="CASCADE", onupdate="CASCADE"))
     user: Mapped["User"] = relationship("User", back_populates="photos")
     file_id: Mapped[str] = mapped_column(String(1000), nullable=False)
 
@@ -37,7 +37,7 @@ class Photo(TimeBasedModel):
 class Video(TimeBasedModel):
     __tablename__ = "videos"
 
-    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="CASCADE", onupdate="CASCADE"))
     user: Mapped["User"] = relationship("User", back_populates="videos")
     file_id: Mapped[str] = mapped_column(String(1000), nullable=False)
 
@@ -45,7 +45,7 @@ class Video(TimeBasedModel):
 class Document(TimeBasedModel):
     __tablename__ = "documents"
 
-    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="CASCADE", onupdate="CASCADE"))
     user: Mapped["User"] = relationship("User", back_populates="documents")
     file_id: Mapped[str] = mapped_column(String(1000), nullable=False)
 
@@ -53,7 +53,7 @@ class Document(TimeBasedModel):
 class TextMessage(TimeBasedModel):
     __tablename__ = "text_messages"
 
-    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="CASCADE", onupdate="CASCADE"))
     user: Mapped["User"] = relationship("User", back_populates="text_messages")
     content: Mapped[str] = mapped_column(Text, nullable=False)
 
@@ -61,7 +61,7 @@ class TextMessage(TimeBasedModel):
 class Audio(TimeBasedModel):
     __tablename__ = "audios"
 
-    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="CASCADE", onupdate="CASCADE"))
     user: Mapped["User"] = relationship("User", back_populates="audios")
     file_id: Mapped[str] = mapped_column(String(1000), nullable=False)
 
@@ -69,7 +69,7 @@ class Audio(TimeBasedModel):
 class Voice(TimeBasedModel):
     __tablename__ = "voices"
 
-    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="CASCADE", onupdate="CASCADE"))
     user: Mapped["User"] = relationship("User", back_populates="voices")
     file_id: Mapped[str] = mapped_column(String(1000), nullable=False)
 
@@ -77,7 +77,7 @@ class Voice(TimeBasedModel):
 class Contact(TimeBasedModel):
     __tablename__ = "contacts"
 
-    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="CASCADE", onupdate="CASCADE"))
     user: Mapped["User"] = relationship("User", back_populates="contacts")
     phone_number: Mapped[str] = mapped_column(String, nullable=True)
     first_name: Mapped[str] = mapped_column(String, nullable=True)
