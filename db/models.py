@@ -14,6 +14,7 @@ class User(TimeBasedModel):
     first_name: Mapped[str] = mapped_column(String(255), nullable=True)
     last_name: Mapped[str] = mapped_column(String(255), nullable=True)
     locale: Mapped[str] = mapped_column(String(15), nullable=True, default="en")
+    logged_in: Mapped[bool] = mapped_column(default=False, nullable=True)
 
     photos: Mapped[list["Photo"]] = relationship("Photo", back_populates="user")
     videos: Mapped[list["Video"]] = relationship("Video", back_populates="user")

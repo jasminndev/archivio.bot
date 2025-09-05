@@ -23,6 +23,7 @@ from bot.handler.view_media.videos import router_view_video
 from bot.handler.view_media.voices import router_view_voice
 from bot.settings.delete_account import delete_account_router
 from bot.settings.lang import router_language
+from bot.settings.logout import router_logout
 from bot.settings.password import router_password
 from bot.settings.username import router_username
 from db.config import conf
@@ -53,6 +54,7 @@ async def main() -> None:
     dp.include_router(router_password)
     dp.include_router(router_language)
     dp.include_router(delete_account_router)
+    dp.include_router(router_logout)
     bot = Bot(token=BOT_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
     await set_bot_commands(bot)
     await dp.start_polling(bot)
