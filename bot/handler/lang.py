@@ -23,7 +23,7 @@ async def show_language_selection(message: Message, state: FSMContext) -> None:
         )
     keyboard.adjust(2)
     await state.set_state(LanguageStates.lang)
-    await message.answer(text="Iltimos, tilni tanlang.", reply_markup=keyboard.as_markup())
+    await message.answer(text=_("🌐 Please choose a language:"), reply_markup=keyboard.as_markup())
 
 
 @dp.message(Command(commands=["start"]))
@@ -40,7 +40,7 @@ async def command_start_handler(message: Message, state: FSMContext) -> None:
         )
 
 
-@dp.callback_query(F.data.startswith("lang"))
+@dp.callback_query(LanguageStates.lang, F.data.startswith("lang"))
 async def lang_selected_handler(callback: CallbackQuery, state: FSMContext):
     if callback.data == "lang_":
         await callback.message.delete()
