@@ -1,8 +1,8 @@
 from aiogram import F
 from aiogram.fsm.context import FSMContext
-from aiogram.types import KeyboardButton, Message, ReplyKeyboardMarkup
+from aiogram.types import KeyboardButton, Message, ReplyKeyboardMarkup, InlineKeyboardButton
 from aiogram.utils.i18n import gettext as _, lazy_gettext as __
-from aiogram.utils.keyboard import ReplyKeyboardBuilder
+from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
 
 from bot.dispatcher import dp
 from bot.states import SectorStates
@@ -55,7 +55,7 @@ def get_settings_keyboard():
         [_("🚫 Logout")],
         [_("⬅️ Back")],
     ]
-    return build_keyboard(buttons).as_markup(resize_keyboard=True)
+    return build_keyboard(buttons).as_markup(resize_keyboard=True, one_time_keyboard=True)
 
 
 def add_done_keyboard():
@@ -80,3 +80,13 @@ def navigation_keyboard(include_back=False, include_cancel=False):
 
 def get_back_keyboard():
     return build_keyboard([[_("⬅️ Back")]]).as_markup(resize_keyboard=True)
+
+
+def delete_account_markup():
+    keyboard = InlineKeyboardBuilder()
+    keyboard.add(
+        InlineKeyboardButton(text="✅ Yes, delete", callback_data="delete_yes"),
+        InlineKeyboardButton(text="⬅️ Back", callback_data="delete_cancel"),
+    )
+    keyboard.adjust(2)
+    return keyboard.as_markup()

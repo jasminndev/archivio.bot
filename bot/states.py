@@ -42,6 +42,7 @@ class SectorStates(StatesGroup):
     change_password = State()
     change_language = State()
     change_language_ = State()
+    delete_user = State()
 
 
 class LoginStates(StatesGroup):
