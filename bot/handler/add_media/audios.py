@@ -1,4 +1,6 @@
 import logging
+import asyncio
+from collections import defaultdict
 
 from aiogram import F
 from aiogram import Router
@@ -15,6 +17,7 @@ router_audio = Router()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+user_locks = defaultdict(asyncio.Lock)
 
 @router_audio.message(SectorStates.audio, F.text == __("⏬ Add"))
 async def add_audio_handler(message: Message, state: FSMContext):
@@ -25,38 +28,39 @@ async def add_audio_handler(message: Message, state: FSMContext):
     user = await User.filter_one(tg_id=tg_id)
     if user:
         await state.set_state(SectorStates.add_audio)
-        await state.update_data(audios=[], user_id=user.id)
+        await state.update_data(audios=[], user_id=user.id, reminder_sent=False)
     else:
         await message.answer(_("⚠️ User not found. Please start with /start first."))
         await state.clear()
 
-
 @router_audio.message(F.media_group_id, F.audio)
 @media_group_handler
 async def handle_media_group_audios(messages: list[Message], state: FSMContext):
-    new_audios = [msg.audio.file_id for msg in messages]
+    user_id = messages[0].chat.id
+    async with user_locks[user_id]:  # Lock for this user
+        data = await state.get_data()
+        existing_audios = data.get('audios', [])
+        new_audios = [msg.audio.file_id for msg in messages]
+        updated_audios = existing_audios + new_audios
+        await state.update_data(audios=updated_audios)
 
-    data = await state.get_data()
-    existing_audios = data.get('audios', [])
-    await state.update_data(audios=existing_audios + new_audios)
-
-    await messages[-1].answer(
-        _("After finishing, click the '✅ Done' button!")
-    )
-
+        if not data.get("reminder_sent"):
+            await messages[-1].answer(_("After finishing, click the '✅ Done' button!"))
+            await state.update_data(reminder_sent=True)
 
 @router_audio.message(SectorStates.add_audio, F.audio, F.media_group_id == None)
 async def handle_single_audio(message: Message, state: FSMContext):
-    file_id = message.audio.file_id
-    data = await state.get_data()
-    audios = data.get('audios', [])
-    audios.append(file_id)
-    await state.update_data(audios=audios)
+    user_id = message.chat.id
+    async with user_locks[user_id]:  # Lock for this user
+        file_id = message.audio.file_id
+        data = await state.get_data()
+        audios = data.get('audios', [])
+        updated_audios = audios + [file_id]
+        await state.update_data(audios=updated_audios)
 
-    await message.answer(
-        _("✅ You can send more or click the '✅ Done' button!")
-    )
-
+        if not data.get("reminder_sent"):
+            await message.answer(_("✅ You can send more or click the '✅ Done' button!"))
+            await state.update_data(reminder_sent=True)
 
 @router_audio.message(SectorStates.add_audio, F.text == "✅ Done")
 async def handle_done_button(message: Message, state: FSMContext):
@@ -91,7 +95,6 @@ async def handle_done_button(message: Message, state: FSMContext):
         reply_markup=get_back_keyboard()
     )
 
-
 @router_audio.message(SectorStates.add_audio)
 async def not_audio_warning(message: Message):
-    await message.answer("❗️Please, Send the audios or click the '✅ Done' button!")
+    await message.answer(_("❗️Please, Send the audios or click the '✅ Done' button"))
