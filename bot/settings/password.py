@@ -5,6 +5,7 @@ from aiogram.types import Message
 from aiogram.utils.i18n import gettext as _, lazy_gettext as __
 
 from bot.buttons.functions import hash_password
+from bot.buttons.navigation import get_back_keyboard
 from bot.handler import valid_password
 from bot.states import SectorStates
 from db.models import User
@@ -39,4 +40,5 @@ async def process_password(message: Message, state: FSMContext):
     await User.update(_id=user.id, password=hashed)
 
     await state.clear()
-    await message.answer(_("🔄 Password successfully changed."))
+    await message.answer(_("🔄 Password successfully changed."), reply_markup=get_back_keyboard())
+    await state.set_state(SectorStates.settings)

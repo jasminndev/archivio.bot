@@ -66,7 +66,14 @@ async def contact_us__handler(message: Message, state: FSMContext):
     )
     await state.set_state(SectorStates.contact_us)
     await message.answer(text=_("Click the button to contact ⬇️"), reply_markup=ikb)
-    await message.answer(_("🏠 Main menu"), reply_markup=get_main_menu_keyboard())
+
+
+@dp.callback_query(F.data == 'back')
+async def back_handler(callback: CallbackQuery, state: FSMContext):
+    await state.set_state(SectorStates.main_menu)
+    await callback.message.edit_text(_("Back to main menu"), reply_markup=None)
+    await callback.answer()
+    await callback.message.answer(_("🏠 Main menu"), reply_markup=get_main_menu_keyboard())
 
 
 @dp.message(SectorStates.main_menu, F.text == __("⚙️ Settings"))
