@@ -40,7 +40,7 @@ async def handle_single_text_message(message: Message, state: FSMContext):
     await state.update_data(text_messages=text_messages)
 
     await message.answer(
-        _("✅ Text message saved! You can send more or click the '✅ Done' button!")
+        _("✅ You can send more or click the '✅ Done' button!")
     )
 
 

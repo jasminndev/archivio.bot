@@ -44,7 +44,7 @@ async def handle_contact(message: Message, state: FSMContext):
     await state.update_data(contacts=contacts)
 
     await message.answer(
-        _("✅ Contact saved! You can send more or click the '✅ Done' button!")
+        _("✅ You can send more or click the '✅ Done' button!")
     )
 
 

@@ -42,7 +42,7 @@ async def handle_media_group_photos(messages: list[Message], state: FSMContext):
     await state.update_data(photos=existing_photos + new_photos)
 
     await messages[-1].answer(
-        _("Photos saved. After finishing, click the '✅ Done' button!")
+        _("After finishing, click the '✅ Done' button!")
     )
 
 

@@ -41,7 +41,7 @@ async def handle_media_group_audios(messages: list[Message], state: FSMContext):
     await state.update_data(audios=existing_audios + new_audios)
 
     await messages[-1].answer(
-        _("Audios saved. After finishing, click the '✅ Done' button!")
+        _("After finishing, click the '✅ Done' button!")
     )
 
 

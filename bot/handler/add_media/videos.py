@@ -41,7 +41,7 @@ async def handle_media_group_videos(messages: list[Message], state: FSMContext):
     await state.update_data(videos=existing_videos + new_videos)
 
     await messages[-1].answer(
-        _("Videos saved. After finishing, click the '✅ Done' button!")
+        _("After finishing, click the '✅ Done' button!")
     )
 
 

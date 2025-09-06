@@ -66,7 +66,7 @@ async def contact_us__handler(message: Message, state: FSMContext):
     )
     await state.set_state(SectorStates.contact_us)
     await message.answer(text=_("Click the button to contact ⬇️"), reply_markup=ikb)
-    await message.edit_text(_("🏠 Main menu"), reply_markup=get_main_menu_keyboard())
+    await message.answer(_("🏠 Main menu"), reply_markup=get_main_menu_keyboard())
 
 
 @dp.message(SectorStates.main_menu, F.text == __("⚙️ Settings"))

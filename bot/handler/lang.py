@@ -23,12 +23,14 @@ async def show_language_selection(message: Message, state: FSMContext) -> None:
         )
     keyboard.adjust(2)
     await state.set_state(LanguageStates.lang)
-    await message.answer(text=_("🌐 Please choose a language:"), reply_markup=keyboard.as_markup())
+    await message.answer(
+        text=_("🌐 Please choose a language:"),
+        reply_markup=keyboard.as_markup()
+    )
 
 
 @dp.message(Command(commands=["start"]))
 async def command_start_handler(message: Message, state: FSMContext) -> None:
-    await show_language_selection(message, state)
     tg_id = str(message.chat.id)
     user = await User.filter_one(tg_id=tg_id)
     if not user:
@@ -38,16 +40,18 @@ async def command_start_handler(message: Message, state: FSMContext) -> None:
             first_name=message.from_user.first_name,
             last_name=message.from_user.last_name,
         )
+    await show_language_selection(message, state)
 
 
-@dp.callback_query(LanguageStates.lang, F.data.startswith("lang"))
+@dp.callback_query(F.data == "lang_")
+async def change_language_handler(callback: CallbackQuery, state: FSMContext):
+    await callback.message.delete()
+    await show_language_selection(callback.message, state)
+    await callback.answer()
+
+
+@dp.callback_query(LanguageStates.lang, F.data.startswith("lang_"))
 async def lang_selected_handler(callback: CallbackQuery, state: FSMContext):
-    if callback.data == "lang_":
-        await callback.message.delete()
-        await show_language_selection(callback.message, state)
-        await callback.answer()
-        return
-
     code = map_lang.get(callback.data)
     if code:
         await state.update_data(locale=code)
@@ -60,15 +64,20 @@ async def lang_selected_handler(callback: CallbackQuery, state: FSMContext):
 
         text = _(
             "🤖 Welcome, {full_name}!\n\n"
-            "In this bot, you can store photos, videos, and documents, and even write letters that only you can read.\n\n"
+            "In this bot, you can store photos, videos, and documents, "
+            "and even write letters that only you can read.\n\n"
             "Use the following commands to use the service:\n\n"
             "🔹 /register — to register\n"
             "🔹 /login — to login\n\n"
             "Use the /help command to get assistance."
         ).format(full_name=html.bold(callback.from_user.full_name))
+
         keyboard = InlineKeyboardBuilder()
         keyboard.add(
-            InlineKeyboardButton(text=_("🔄 Change the language"), callback_data="lang_"),
+            InlineKeyboardButton(
+                text=_("🔄 Change the language"),
+                callback_data="lang_"
+            ),
         )
         keyboard.adjust(1)
 

@@ -41,7 +41,7 @@ async def handle_media_group_voices(messages: list[Message], state: FSMContext):
     await state.update_data(voices=existing_voices + new_voices)
 
     await messages[-1].answer(
-        _("Voice messages saved. After finishing, click the '✅ Done' button!")
+        _("After finishing, click the '✅ Done' button!")
     )
 
 

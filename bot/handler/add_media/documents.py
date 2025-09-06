@@ -41,7 +41,7 @@ async def handle_media_group_documents(messages: list[Message], state: FSMContex
     await state.update_data(documents=existing_documents + new_documents)
 
     await messages[-1].answer(
-        _("Documents saved. After finishing, click the '✅ Done' button!")
+        _("After finishing, click the '✅ Done' button!")
     )
 
 
