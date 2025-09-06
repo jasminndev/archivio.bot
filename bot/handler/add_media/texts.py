@@ -1,4 +1,6 @@
+import asyncio
 import logging
+from collections import defaultdict
 
 from aiogram import F, Router
 from aiogram.fsm.context import FSMContext
@@ -13,6 +15,7 @@ router_text_message = Router()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+user_locks = defaultdict(asyncio.Lock)
 
 @router_text_message.message(SectorStates.text_message, F.text == __("⏬ Add"))
 async def add_text_message_handler(message: Message, state: FSMContext):
@@ -24,25 +27,25 @@ async def add_text_message_handler(message: Message, state: FSMContext):
     user = await User.filter_one(tg_id=tg_id)
     if user:
         await state.set_state(SectorStates.add_text_message)
-        await state.update_data(text_messages=[], user_id=user.id)
+        await state.update_data(text_messages=[], user_id=user.id, reminder_sent=False)
     else:
         await message.answer(_("⚠️ User not found. Please start with /start first."))
         await state.clear()
 
-
 @router_text_message.message(SectorStates.add_text_message, F.text & (F.text != "✅ Done"))
 async def handle_single_text_message(message: Message, state: FSMContext):
-    text_content = message.text
+    user_id = message.chat.id
+    async with user_locks[user_id]:
+        data = await state.get_data()
+        text_messages = data.get('text_messages', [])
+        text_content = message.text.strip()  # Remove leading/trailing whitespace
+        if text_content:  # Ensure non-empty content
+            text_messages.append(text_content)
+            await state.update_data(text_messages=text_messages)
 
-    data = await state.get_data()
-    text_messages = data.get('text_messages', [])
-    text_messages.append(text_content)
-    await state.update_data(text_messages=text_messages)
-
-    await message.answer(
-        _("✅ You can send more or click the '✅ Done' button!")
-    )
-
+            if not data.get("reminder_sent"):
+                await message.answer(_("✅ You can send more or click the '✅ Done' button!"))
+                await state.update_data(reminder_sent=True)
 
 @router_text_message.message(SectorStates.add_text_message, F.text == "✅ Done")
 async def handle_done_button(message: Message, state: FSMContext):
@@ -77,7 +80,7 @@ async def handle_done_button(message: Message, state: FSMContext):
         reply_markup=get_back_keyboard()
     )
 
-
 @router_text_message.message(SectorStates.add_text_message)
 async def not_text_message_warning(message: Message):
-    await message.answer(_("❗️Please send text messages or click the '✅ Done' button!"))
+    if not (message.text or message.text == "✅ Done"):
+        await message.answer(_("❗️Please send text messages or click the '✅ Done' button!"))
