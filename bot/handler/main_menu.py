@@ -6,7 +6,6 @@ from bot.handler.lang import *
 from db.config import conf
 
 
-@dp.callback_query(SectorStates.contact_us, F.data == 'back')
 @dp.message(F.text.in_([__("⬅️ Back"), __("🏠 Main menu")]))
 async def main_menu_handler(message: Message, state: FSMContext):
     await state.set_state(SectorStates.main_menu)
@@ -32,31 +31,31 @@ async def documents_handler(message: Message, state: FSMContext):
 
 
 @dp.message(SectorStates.main_menu, F.text == __("✉️ Text messages"))
-async def letters_handler(message: Message, state: FSMContext):
+async def text_handler(message: Message, state: FSMContext):
     await state.set_state(SectorStates.text_message)
     await message.answer(_("✉️ Text messages"), reply_markup=get_add_view_keyboard())
 
 
 @dp.message(SectorStates.main_menu, F.text == __("🎙 Voice messages"))
-async def letters_handler(message: Message, state: FSMContext):
+async def voices_handler(message: Message, state: FSMContext):
     await state.set_state(SectorStates.voice)
     await message.answer(_("🎙 Voice messages"), reply_markup=get_add_view_keyboard())
 
 
 @dp.message(SectorStates.main_menu, F.text == __("🎵 Audios"))
-async def letters_handler(message: Message, state: FSMContext):
+async def audios_handler(message: Message, state: FSMContext):
     await state.set_state(SectorStates.audio)
     await message.answer(_("🎵 Audios"), reply_markup=get_add_view_keyboard())
 
 
 @dp.message(SectorStates.main_menu, F.text == __("👤 Contacts"))
-async def letters_handler(message: Message, state: FSMContext):
+async def contacts_handler(message: Message, state: FSMContext):
     await state.set_state(SectorStates.contact)
     await message.answer(_("👤 Contacts"), reply_markup=get_add_view_keyboard())
 
 
 @dp.message(SectorStates.main_menu, F.text == __("📞 Contact us"))
-async def letters_handler(message: Message, state: FSMContext):
+async def contact_us__handler(message: Message, state: FSMContext):
     tg_username = conf.bot.TG_USERNAME
     username_link = f"https://t.me/{tg_username}"
     ikb = InlineKeyboardMarkup(
@@ -67,6 +66,7 @@ async def letters_handler(message: Message, state: FSMContext):
     )
     await state.set_state(SectorStates.contact_us)
     await message.answer(text=_("Click the button to contact ⬇️"), reply_markup=ikb)
+    await message.edit_text(_("🏠 Main menu"), reply_markup=get_main_menu_keyboard())
 
 
 @dp.message(SectorStates.main_menu, F.text == __("⚙️ Settings"))

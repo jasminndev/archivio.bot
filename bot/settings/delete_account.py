@@ -37,7 +37,5 @@ async def confirm_delete(callback: CallbackQuery, state: FSMContext):
 @delete_account_router.callback_query(SectorStates.delete_user, F.data == "delete_cancel")
 async def cancel_delete(callback: CallbackQuery, state: FSMContext):
     await state.set_state(SectorStates.settings)
-    await callback.message.edit_text(
-        _("❌ Account deletion cancelled.")
-    )
+    await callback.message.delete()
     await callback.message.answer(_("⚙️ Settings"), reply_markup=get_settings_keyboard())
