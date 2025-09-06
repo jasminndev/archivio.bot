@@ -5,6 +5,7 @@ from aiogram.utils.i18n import gettext as _, lazy_gettext as __
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 from bot.buttons.constants import languages, map_lang
+from bot.buttons.navigation import get_back_keyboard
 from bot.dispatcher import i18n
 from bot.states import SectorStates
 from db.models import User
@@ -50,4 +51,4 @@ async def language_selected_handler(callback: CallbackQuery, state: FSMContext):
         await User.update(_id=user.id, locale=code)
 
     await callback.message.delete()
-    await callback.message.answer(_("✅ Language successfully changed!"))
+    await callback.message.answer(_("✅ Language successfully changed!"), reply_markup=get_back_keyboard())
