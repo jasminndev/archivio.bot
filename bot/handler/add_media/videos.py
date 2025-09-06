@@ -54,7 +54,7 @@ async def handle_single_video(message: Message, state: FSMContext):
     await state.update_data(videos=videos)
 
     await message.answer(
-        _("✅ Video saved! You can send more or click the '✅ Done' button!")
+        _("✅ You can send more or click the '✅ Done' button!")
     )
 
 

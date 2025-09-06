@@ -54,7 +54,7 @@ async def handle_single_document(message: Message, state: FSMContext):
     await state.update_data(documents=documents)
 
     await message.answer(
-        _("✅ Document saved! You can send more or click the '✅ Done' button!")
+        _("You can send more or click the '✅ Done' button!")
     )
 
 

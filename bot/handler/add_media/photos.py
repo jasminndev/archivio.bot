@@ -55,7 +55,7 @@ async def handle_single_photo(message: Message, state: FSMContext):
     await state.update_data(photos=photos)
 
     await message.answer(
-        _("✅ Photo saved! You can send more or click the '✅ Done' button!")
+        _("✅ You can send more or click the '✅ Done' button!")
     )
 
 

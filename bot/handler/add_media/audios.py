@@ -54,7 +54,7 @@ async def handle_single_audio(message: Message, state: FSMContext):
     await state.update_data(audios=audios)
 
     await message.answer(
-        _("✅ Audio saved! You can send more or click the '✅ Done' button!")
+        _("✅ You can send more or click the '✅ Done' button!")
     )
 
 
