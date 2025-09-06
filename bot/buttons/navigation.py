@@ -66,18 +66,6 @@ def add_done_keyboard():
     )
 
 
-def navigation_keyboard(include_back=False, include_cancel=False):
-    buttons = [[_("🏠 Main menu")]]
-
-    if include_back:
-        buttons.append([_("🔙 Back")])
-
-    if include_cancel:
-        buttons.append([_("❌ Cancel")])
-
-    return build_keyboard(buttons).as_markup(resize_keyboard=True)
-
-
 def get_back_keyboard():
     return build_keyboard([[_("⬅️ Back")]]).as_markup(resize_keyboard=True)
 
