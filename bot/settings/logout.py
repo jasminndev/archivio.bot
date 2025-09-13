@@ -1,4 +1,5 @@
 import logging
+
 from aiogram import F, Router
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
@@ -10,6 +11,7 @@ from db.models import User
 router_logout = Router()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
 
 @router_logout.message(SectorStates.settings, F.text == __("🚫 Logout"))
 async def logout(message: Message, state: FSMContext):
@@ -30,5 +32,5 @@ async def logout(message: Message, state: FSMContext):
         return
 
     await message.answer(
-        _("✅ You have been logged out. Use /login to log in again."),
+        _("✅ You have been logged out. Use /login to log in again or /register to create a new account."),
     )
