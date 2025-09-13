@@ -64,8 +64,7 @@ async def lang_selected_handler(callback: CallbackQuery, state: FSMContext):
 
         text = _(
             "🤖 Welcome, {full_name}!\n\n"
-            "In this bot, you can store photos, videos, and documents, "
-            "and even write letters that only you can read.\n\n"
+            "In this bot, you can store photos, videos, documents and etc.\n\n"
             "Use the following commands to use the service:\n\n"
             "🔹 /register — to register\n"
             "🔹 /login — to login\n\n"
