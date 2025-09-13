@@ -145,4 +145,4 @@ class BaseModel(AbstractClass, Base):
 class TimeBasedModel(BaseModel):
     __abstract__ = True
     updated_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), onupdate=datetime.now())
-    created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
+    created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), onupdate=datetime.now())

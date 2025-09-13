@@ -37,7 +37,7 @@ async def command_register(message: Message, state: FSMContext):
     tg_id = str(message.chat.id)
     existing_user = await User.filter_one(tg_id=tg_id, username__not=None)
 
-    if existing_user:
+    if existing_user and User.logged_in == True:
         await message.answer(_("✅ You are already registered!"))
         return
 
