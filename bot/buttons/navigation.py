@@ -26,7 +26,7 @@ def get_add_view_keyboard():
         [_("⏬ Add"), _("👀 View")],
         [_("⬅️ Back")]
     ]
-    return build_keyboard(buttons).as_markup(resize_keyboard=True)
+    return build_keyboard(buttons).as_markup(resize_keyboard=True, one_time_keyboard=True)
 
 
 def get_view_keyboard():
@@ -35,7 +35,7 @@ def get_view_keyboard():
         [_("Last 6 months"), _("All")],
         [_("⬅️ Back")]
     ]
-    return build_keyboard(buttons).as_markup(resize_keyboard=True)
+    return build_keyboard(buttons).as_markup(resize_keyboard=True, one_time_keyboard=True)
 
 
 def get_main_menu_keyboard():
@@ -62,12 +62,12 @@ def add_done_keyboard():
     return ReplyKeyboardMarkup(
         keyboard=[[KeyboardButton(text=_('✅ Done'))],
                   [KeyboardButton(text=_('⬅️ Back'))]],
-        resize_keyboard=True
+        resize_keyboard=True, one_time_keyboard=True
     )
 
 
 def get_back_keyboard():
-    return build_keyboard([[_("⬅️ Back")]]).as_markup(resize_keyboard=True)
+    return build_keyboard([[_("⬅️ Back")]]).as_markup(resize_keyboard=True, one_time_keyboard=True)
 
 
 def delete_account_markup():
