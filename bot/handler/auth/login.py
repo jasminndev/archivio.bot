@@ -47,5 +47,6 @@ async def process_password(message: Message, state: FSMContext):
     keyboard.add(KeyboardButton(text=_("🏠 Main menu")))
     markup = keyboard.as_markup(resize_keyboard=True, one_time_keyboard=True)
 
+    await User.update(_id=user.id, logged_in=True)
     await message.answer(_("✅ You have successfully logged in."), reply_markup=markup)
     await state.clear()
