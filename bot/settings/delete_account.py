@@ -30,7 +30,8 @@ async def confirm_delete(callback: CallbackQuery, state: FSMContext):
 
     await state.clear()
     await callback.message.edit_text(
-        _("🗑 Your account has been deleted successfully.")
+        _("🗑 Your account has been deleted successfully."
+          "You can use /start in order to get started again."),
     )
 
 
