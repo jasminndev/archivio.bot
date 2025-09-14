@@ -1,0 +1,751 @@
+# Russian translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-09-13 21:10+0500\n"
+"PO-Revision-Date: 2025-09-13 21:10+0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: bot/middlewares.py:30 bot/middlewares.py:32
+msgid "⚠️ You are not logged in. Please /start to register."
+msgstr "⚠️ Вы не авторизованы. Пожалуйста, используйте /start для регистрации."
+
+#: bot/buttons/navigation.py:14 bot/handler/auth/login.py:47
+#: bot/handler/main_menu.py:12 bot/handler/main_menu.py:76
+msgid "🏠 Main menu"
+msgstr "🏠 Главное меню"
+
+#: bot/buttons/navigation.py:26
+msgid "⏬ Add"
+msgstr "⏬ Добавить"
+
+#: bot/buttons/navigation.py:26 bot/handler/view_media/audios.py:22
+#: bot/handler/view_media/contacts.py:22 bot/handler/view_media/documents.py:22
+#: bot/handler/view_media/photos.py:22 bot/handler/view_media/texts.py:22
+#: bot/handler/view_media/videos.py:22 bot/handler/view_media/voices.py:22
+msgid "👀 View"
+msgstr "👀 Просмотреть"
+
+#: bot/buttons/navigation.py:27 bot/buttons/navigation.py:36
+#: bot/buttons/navigation.py:56 bot/buttons/navigation.py:64
+#: bot/buttons/navigation.py:70 bot/handler/main_menu.py:64
+msgid "⬅️ Back"
+msgstr "⬅️ Назад"
+
+#: bot/buttons/navigation.py:34
+msgid "Last week"
+msgstr "Последняя неделя"
+
+#: bot/buttons/navigation.py:34
+msgid "Last month"
+msgstr "Последний месяц"
+
+#: bot/buttons/navigation.py:35
+msgid "Last 6 months"
+msgstr "Последние 6 месяцев"
+
+#: bot/buttons/navigation.py:35
+msgid "All"
+msgstr "Все"
+
+#: bot/buttons/navigation.py:43 bot/handler/main_menu.py:18
+msgid "🖼 Photos"
+msgstr "🖼 Фото"
+
+#: bot/buttons/navigation.py:43 bot/handler/main_menu.py:24
+msgid "🎥 Videos"
+msgstr "🎥 Видео"
+
+#: bot/buttons/navigation.py:43 bot/handler/main_menu.py:30
+msgid "📄 Documents"
+msgstr "📄 Документы"
+
+#: bot/buttons/navigation.py:44 bot/handler/main_menu.py:36
+msgid "✉️ Text messages"
+msgstr "✉️ Текстовые сообщения"
+
+#: bot/buttons/navigation.py:44 bot/handler/main_menu.py:48
+msgid "🎵 Audios"
+msgstr "🎵 Аудио"
+
+#: bot/buttons/navigation.py:44 bot/handler/main_menu.py:54
+msgid "👤 Contacts"
+msgstr "👤 Контакты"
+
+#: bot/buttons/navigation.py:45 bot/handler/main_menu.py:42
+msgid "🎙 Voice messages"
+msgstr "🎙 Голосовые сообщения"
+
+#: bot/buttons/navigation.py:45
+msgid "📞 Contact us"
+msgstr "📞 Связаться с нами"
+
+#: bot/buttons/navigation.py:46 bot/handler/main_menu.py:82
+#: bot/settings/delete_account.py:42
+msgid "⚙️ Settings"
+msgstr "⚙️ Настройки"
+
+#: bot/buttons/navigation.py:53
+msgid "👤 Change username"
+msgstr "👤 Сменить имя пользователя"
+
+#: bot/buttons/navigation.py:53
+msgid "🔢 Change password"
+msgstr "🔢 Сменить пароль"
+
+#: bot/buttons/navigation.py:54
+msgid "🏳️ Change language"
+msgstr "🏳️ Сменить язык"
+
+#: bot/buttons/navigation.py:54
+msgid "🏌🏻‍♀️ Delete account"
+msgstr "🏌🏻‍♀️ Удалить аккаунт"
+
+#: bot/buttons/navigation.py:55
+msgid "🚫 Logout"
+msgstr "🚫 Выйти"
+
+#: bot/buttons/navigation.py:63
+msgid "✅ Done"
+msgstr "✅ Готово"
+
+#: bot/handler/lang.py:27 bot/settings/lang.py:23
+msgid "🌐 Please choose a language:"
+msgstr "🌐 Пожалуйста, выберите язык:"
+
+#: bot/handler/lang.py:65
+msgid ""
+"🤖 Welcome, {full_name}!\n"
+"\n"
+"In this bot, you can store photos, videos, documents and etc.\n"
+"\n"
+"Use the following commands to use the service:\n"
+"\n"
+"🔹 /register — to register\n"
+"🔹 /login — to login\n"
+"\n"
+"Use the /help command to get assistance."
+msgstr ""
+"🤖 Добро пожаловать, {full_name}!\n"
+"\n"
+"В этом боте вы можете хранить фото, видео, документы и многое другое.\n"
+"\n"
+"Используйте следующие команды для работы с сервисом:\n"
+"\n"
+"🔹 /register — для регистрации\n"
+"🔹 /login — для входа\n"
+"\n"
+"Используйте команду /help для получения помощи."
+
+#: bot/handler/lang.py:77
+msgid "🔄 Change the language"
+msgstr "🔄 Сменить язык"
+
+#: bot/handler/lang.py:88
+msgid "Unknown language selection"
+msgstr "Неизвестный выбор языка"
+
+#: bot/handler/main_menu.py:63
+msgid "👮🏻‍♀️ Admin"
+msgstr "👮🏻‍♀️ Админ"
+
+#: bot/handler/main_menu.py:68
+msgid "Click the button to contact ⬇️"
+msgstr "Нажмите кнопку, чтобы связаться ⬇️"
+
+#: bot/handler/main_menu.py:74
+msgid "Back to main menu"
+msgstr "Вернуться в главное меню"
+
+#: bot/handler/add_media/audios.py:25
+msgid ""
+"📸 Please send the audios you want to save. After finishing, click the '✅ "
+"Done' button!"
+msgstr ""
+"📸 Пожалуйста, отправьте аудиофайлы, которые хотите сохранить. После "
+"завершения нажмите кнопку '✅ Готово'!"
+
+#: bot/handler/add_media/audios.py:33 bot/handler/add_media/contacts.py:32
+#: bot/handler/add_media/documents.py:34 bot/handler/add_media/photos.py:34
+#: bot/handler/add_media/texts.py:32 bot/handler/add_media/videos.py:33
+#: bot/handler/add_media/voices.py:33 bot/handler/view_media/audios.py:31
+#: bot/handler/view_media/audios.py:57 bot/handler/view_media/audios.py:83
+#: bot/handler/view_media/audios.py:109 bot/handler/view_media/contacts.py:31
+#: bot/handler/view_media/contacts.py:64 bot/handler/view_media/contacts.py:97
+#: bot/handler/view_media/contacts.py:130
+#: bot/handler/view_media/documents.py:31
+#: bot/handler/view_media/documents.py:57
+#: bot/handler/view_media/documents.py:83
+#: bot/handler/view_media/documents.py:109 bot/handler/view_media/photos.py:31
+#: bot/handler/view_media/photos.py:57 bot/handler/view_media/photos.py:83
+#: bot/handler/view_media/photos.py:109 bot/handler/view_media/texts.py:31
+#: bot/handler/view_media/texts.py:57 bot/handler/view_media/texts.py:83
+#: bot/handler/view_media/texts.py:109 bot/handler/view_media/videos.py:31
+#: bot/handler/view_media/videos.py:57 bot/handler/view_media/videos.py:83
+#: bot/handler/view_media/videos.py:109 bot/handler/view_media/voices.py:31
+#: bot/handler/view_media/voices.py:57 bot/handler/view_media/voices.py:83
+#: bot/handler/view_media/voices.py:109 bot/settings/logout.py:22
+msgid "⚠️ User not found. Please start with /start first."
+msgstr "⚠️ Пользователь не найден. Пожалуйста, начните с команды /start."
+
+#: bot/handler/add_media/audios.py:48 bot/handler/add_media/documents.py:50
+msgid "After finishing, click the '✅ Done' button!"
+msgstr "После завершения нажмите кнопку '✅ Готово'!"
+
+#: bot/handler/add_media/audios.py:62 bot/handler/add_media/contacts.py:51
+#: bot/handler/add_media/texts.py:47 bot/handler/add_media/videos.py:48
+#: bot/handler/add_media/videos.py:64 bot/handler/add_media/voices.py:48
+#: bot/handler/add_media/voices.py:64
+msgid "✅ You can send more or click the '✅ Done' button!"
+msgstr "✅ Вы можете отправить ещё или нажать кнопку '✅ Готово'!"
+
+#: bot/handler/add_media/audios.py:71
+msgid "❗️You didn't send audios!"
+msgstr "❗️ Вы не отправили аудиофайлы!"
+
+#: bot/handler/add_media/audios.py:76 bot/handler/add_media/contacts.py:65
+#: bot/handler/add_media/documents.py:80 bot/handler/add_media/photos.py:88
+#: bot/handler/add_media/texts.py:61 bot/handler/add_media/videos.py:79
+#: bot/handler/add_media/voices.py:79
+msgid "⚠️ User ID not found. Please start again."
+msgstr "⚠️ ID пользователя не найден. Пожалуйста, начните заново."
+
+#: bot/handler/add_media/audios.py:89
+msgid "⚠️ An error occurred while saving a audio. Please try again."
+msgstr ""
+"⚠️ Произошла ошибка при сохранении аудиофайла. Пожалуйста, попробуйте "
+"снова."
+
+#: bot/handler/add_media/audios.py:94
+msgid "✅ All audios saved! Thank you!"
+msgstr "✅ Все аудиофайлы сохранены! Спасибо!"
+
+#: bot/handler/add_media/audios.py:100
+msgid "❗️Please, Send the audios or click the '✅ Done' button"
+msgstr "❗️ Пожалуйста, отправьте аудиофайлы или нажмите кнопку '✅ Готово'"
+
+#: bot/handler/add_media/contacts.py:24
+msgid ""
+"📸 Please send the contacts you want to save. After finishing, click the "
+"'✅ Done' button!"
+msgstr ""
+"📸 Пожалуйста, отправьте контакты, которые хотите сохранить. После "
+"завершения нажмите кнопку '✅ Готово'!"
+
+#: bot/handler/add_media/contacts.py:60
+msgid "❗️You didn't send contacts!"
+msgstr "❗️ Вы не отправили контакты!"
+
+#: bot/handler/add_media/contacts.py:80
+msgid "⚠️ An error occurred while saving a contact. Please try again."
+msgstr "⚠️ Произошла ошибка при сохранении контакта. Пожалуйста, попробуйте снова."
+
+#: bot/handler/add_media/contacts.py:85
+msgid "✅ All contacts saved! Thank you!"
+msgstr "✅ Все контакты сохранены! Спасибо!"
+
+#: bot/handler/add_media/contacts.py:92
+msgid "❗️Please, Send the contacts or click the '✅ Done' button!"
+msgstr "❗️ Пожалуйста, отправьте контакты или нажмите кнопку '✅ Готово'!"
+
+#: bot/handler/add_media/documents.py:26
+msgid ""
+"📸 Please send the documents you want to save. After finishing, click the "
+"'✅ Done' button!"
+msgstr ""
+"📸 Пожалуйста, отправьте документы, которые хотите сохранить. После "
+"завершения нажмите кнопку '✅ Готово'!"
+
+#: bot/handler/add_media/documents.py:65 bot/handler/add_media/photos.py:50
+#: bot/handler/add_media/photos.py:73
+msgid "You can send more or click the '✅ Done' button!"
+msgstr "Вы можете отправить ещё или нажать кнопку '✅ Готово'!"
+
+#: bot/handler/add_media/documents.py:75
+msgid "❗️You didn't send documents!"
+msgstr "❗️ Вы не отправили документы!"
+
+#: bot/handler/add_media/documents.py:90
+msgid "⚠️ An error occurred while saving a document. Please try again."
+msgstr ""
+"⚠️ Произошла ошибка при сохранении документа. Пожалуйста, попробуйте "
+"снова."
+
+#: bot/handler/add_media/documents.py:95
+msgid "✅ All documents saved! Thank you!"
+msgstr "✅ Все документы сохранены! Спасибо!"
+
+#: bot/handler/add_media/photos.py:26
+msgid ""
+"📸 Please send the photos you want to save. After finishing, click the '✅ "
+"Done' button!"
+msgstr ""
+"📸 Пожалуйста, отправьте фото, которые хотите сохранить. После завершения "
+"нажмите кнопку '✅ Готово'!"
+
+#: bot/handler/add_media/photos.py:83
+msgid "❗️You didn't send photos!"
+msgstr "❗️ Вы не отправили фото!"
+
+#: bot/handler/add_media/photos.py:101
+msgid "⚠️ An error occurred while saving a photo. Please try again."
+msgstr "⚠️ Произошла ошибка при сохранении фото. Пожалуйста, попробуйте снова."
+
+#: bot/handler/add_media/photos.py:106
+msgid "✅ All photos saved! Thank you!"
+msgstr "✅ Все фото сохранены! Спасибо!"
+
+#: bot/handler/add_media/photos.py:116
+msgid "❗️Please, Send the photos or click the '✅ Done' button!"
+msgstr "❗️ Пожалуйста, отправьте фото или нажмите кнопку '✅ Готово'!"
+
+#: bot/handler/add_media/texts.py:23
+msgid ""
+"📝 Please send the text messages you want to save. After finishing, click "
+"the '✅ Done' button!"
+msgstr ""
+"📝 Пожалуйста, отправьте текстовые сообщения, которые хотите сохранить. "
+"После завершения нажмите кнопку '✅ Готово'!"
+
+#: bot/handler/add_media/texts.py:56
+msgid "❗️You didn't send any text messages!"
+msgstr "❗️ Вы не отправили текстовые сообщения!"
+
+#: bot/handler/add_media/texts.py:74
+msgid "⚠️ An error occurred while saving a text message. Please try again."
+msgstr ""
+"⚠️ Произошла ошибка при сохранении текстового сообщения. Пожалуйста, "
+"попробуйте снова."
+
+#: bot/handler/add_media/texts.py:79
+msgid "✅ All text messages saved! Thank you!"
+msgstr "✅ Все текстовые сообщения сохранены! Спасибо!"
+
+#: bot/handler/add_media/texts.py:86
+msgid "❗️Please send text messages or click the '✅ Done' button!"
+msgstr ""
+"❗️ Пожалуйста, отправьте текстовые сообщения или нажмите кнопку '✅ "
+"Готово'!"
+
+#: bot/handler/add_media/videos.py:24
+msgid ""
+"📸 Please send the videos you want to save. After finishing, click the '✅ "
+"Done' button!"
+msgstr ""
+"📸 Пожалуйста, отправьте видео, которые хотите сохранить. После завершения"
+" нажмите кнопку '✅ Готово'!"
+
+#: bot/handler/add_media/videos.py:74
+msgid "❗️You didn't send any videos!"
+msgstr "❗️ Вы не отправили видео!"
+
+#: bot/handler/add_media/videos.py:93
+msgid "⚠️ An error occurred while saving a video. Please try again."
+msgstr "⚠️ Произошла ошибка при сохранении видео. Пожалуйста, попробуйте снова."
+
+#: bot/handler/add_media/videos.py:98
+msgid "✅ All videos saved! Thank you!"
+msgstr "✅ Все видео сохранены! Спасибо!"
+
+#: bot/handler/add_media/videos.py:105
+msgid "❗️Please send videos or click the '✅ Done' button!"
+msgstr "❗️ Пожалуйста, отправьте видео или нажмите кнопку '✅ Готово'!"
+
+#: bot/handler/add_media/voices.py:24
+msgid ""
+"🎙️ Please send the voice messages you want to save. After finishing, "
+"click the '✅ Done' button!"
+msgstr ""
+"🎙️ Пожалуйста, отправьте голосовые сообщения, которые хотите сохранить. "
+"После завершения нажмите кнопку '✅ Готово'!"
+
+#: bot/handler/add_media/voices.py:74
+msgid "❗️You didn't send any voice messages!"
+msgstr "❗️ Вы не отправили голосовые сообщения!"
+
+#: bot/handler/add_media/voices.py:93
+msgid "⚠️ An error occurred while saving a voice message. Please try again."
+msgstr ""
+"⚠️ Произошла ошибка при сохранении голосового сообщения. Пожалуйста, "
+"попробуйте снова."
+
+#: bot/handler/add_media/voices.py:98
+msgid "✅ All voice messages saved! Thank you!"
+msgstr "✅ Все голосовые сообщения сохранены! Спасибо!"
+
+#: bot/handler/add_media/voices.py:105
+msgid "❗️Please send voice messages or click the '✅ Done' button!"
+msgstr ""
+"❗️ Пожалуйста, отправьте голосовые сообщения или нажмите кнопку '✅ "
+"Готово'!"
+
+#: bot/handler/auth/login.py:15
+msgid "📝 Please, enter your username"
+msgstr "📝 Пожалуйста, введите имя пользователя"
+
+#: bot/handler/auth/login.py:23
+msgid "🔒 Now, enter your password. "
+msgstr "🔒 Теперь введите пароль."
+
+#: bot/handler/auth/login.py:37
+msgid "❌ No such user found! Please try again. Enter a valid username."
+msgstr ""
+"❌ Пользователь не найден! Пожалуйста, попробуйте снова. Введите "
+"действительное имя пользователя."
+
+#: bot/handler/auth/login.py:42
+msgid "❌ Invalid password! Please try again. Enter a valid password."
+msgstr ""
+"❌ Неверный пароль! Пожалуйста, попробуйте снова. Введите действительный "
+"пароль."
+
+#: bot/handler/auth/login.py:51
+msgid "✅ You have successfully logged in."
+msgstr "✅ Вы успешно вошли в систему."
+
+#: bot/handler/auth/register.py:41
+msgid "✅ You are already registered!"
+msgstr "✅ Вы уже зарегистрированы!"
+
+#: bot/handler/auth/register.py:45
+msgid "📝 Enter your username"
+msgstr "📝 Введите имя пользователя"
+
+#: bot/handler/auth/register.py:53
+msgid "❌ This username is already taken. Please choose another."
+msgstr "❌ Это имя пользователя уже занято. Пожалуйста, выберите другое."
+
+#: bot/handler/auth/register.py:59
+msgid ""
+"🔒 Create a password.\n"
+"\n"
+"It must be at least 6 characters long and contain both letters and "
+"numbers."
+msgstr ""
+"🔒 Создайте пароль.\n"
+"\n"
+"Он должен содержать не менее 6 символов, включая буквы и цифры."
+
+#: bot/handler/auth/register.py:69 bot/settings/password.py:28
+msgid ""
+"❌ Password must be at least 6 characters long and contain both letters "
+"and numbers. Please create another."
+msgstr ""
+"❌ Пароль должен содержать не менее 6 символов, включая буквы и цифры. "
+"Пожалуйста, создайте другой."
+
+#: bot/handler/auth/register.py:96
+msgid "⚠️ An error occurred while registering. Please try again later."
+msgstr "⚠️ Произошла ошибка при регистрации. Пожалуйста, попробуйте снова позже."
+
+#: bot/handler/auth/register.py:101
+msgid ""
+"🎉 You have successfully registered!\n"
+"\n"
+"Now, you can use /login command to log in"
+msgstr ""
+"🎉 Вы успешно зарегистрированы!\n"
+"\n"
+"Теперь вы можете использовать команду /login для входа."
+
+#: bot/handler/view_media/audios.py:39
+msgid "📂 You don't have any saved audios from the last week."
+msgstr "📂 У вас нет сохранённых аудиофайлов за последнюю неделю."
+
+#: bot/handler/view_media/audios.py:48
+msgid "✅ All last week's audios have been shown."
+msgstr "✅ Все аудиофайлы за последнюю неделю показаны."
+
+#: bot/handler/view_media/audios.py:65
+msgid "📂 You don't have any saved audios from the last month."
+msgstr "📂 У вас нет сохранённых аудиофайлов за последний месяц."
+
+#: bot/handler/view_media/audios.py:74
+msgid "✅ All last month's audios have been shown."
+msgstr "✅ Все аудиофайлы за последний месяц показаны."
+
+#: bot/handler/view_media/audios.py:91
+msgid "📂 You don't have any saved audios from the last 6 months."
+msgstr "📂 У вас нет сохранённых аудиофайлов за последние 6 месяцев."
+
+#: bot/handler/view_media/audios.py:100
+msgid "✅ All last 6 months' audios have been shown."
+msgstr "✅ Все аудиофайлы за последние 6 месяцев показаны."
+
+#: bot/handler/view_media/audios.py:115
+msgid "📂 You don't have any saved audios."
+msgstr "📂 У вас нет сохранённых аудиофайлов."
+
+#: bot/handler/view_media/audios.py:124
+msgid "✅ All audios have been shown."
+msgstr "✅ Все аудиофайлы показаны."
+
+#: bot/handler/view_media/contacts.py:39
+msgid "📂 You don't have any saved contacts from the last week."
+msgstr "📂 У вас нет сохранённых контактов за последнюю неделю."
+
+#: bot/handler/view_media/contacts.py:53 bot/handler/view_media/contacts.py:86
+#: bot/handler/view_media/contacts.py:119
+#: bot/handler/view_media/contacts.py:150
+msgid "✅ All last week's contacts have been shown."
+msgstr "✅ Все контакты за последнюю неделю показаны."
+
+#: bot/handler/view_media/contacts.py:72
+msgid "📂 You don't have any saved contacts from the last month."
+msgstr "📂 У вас нет сохранённых контактов за последний месяц."
+
+#: bot/handler/view_media/contacts.py:105
+msgid "📂 You don't have any saved contacts from the last 6 months."
+msgstr "📂 У вас нет сохранённых контактов за последние 6 месяцев."
+
+#: bot/handler/view_media/contacts.py:136
+msgid "📂 You don't have any saved contacts."
+msgstr "📂 У вас нет сохранённых контактов."
+
+#: bot/handler/view_media/documents.py:39
+msgid "📂 You don't have any saved documents from the last week."
+msgstr "📂 У вас нет сохранённых документов за последнюю неделю."
+
+#: bot/handler/view_media/documents.py:48
+msgid "✅ All last week's documents have been shown."
+msgstr "✅ Все документы за последнюю неделю показаны."
+
+#: bot/handler/view_media/documents.py:65
+msgid "📂 You don't have any saved documents from the last month."
+msgstr "📂 У вас нет сохранённых документов за последний месяц."
+
+#: bot/handler/view_media/documents.py:74
+msgid "✅ All last month's documents have been shown."
+msgstr "✅ Все документы за последний месяц показаны."
+
+#: bot/handler/view_media/documents.py:91
+msgid "📂 You don't have any saved documents from the last 6 months."
+msgstr "📂 У вас нет сохранённых документов за последние 6 месяцев."
+
+#: bot/handler/view_media/documents.py:100
+msgid "✅ All last 6 months' documents have been shown."
+msgstr "✅ Все документы за последние 6 месяцев показаны."
+
+#: bot/handler/view_media/documents.py:115
+msgid "📂 You don't have any saved documents."
+msgstr "📂 У вас нет сохранённых документов."
+
+#: bot/handler/view_media/documents.py:124
+msgid "✅ All documents have been shown."
+msgstr "✅ Все документы показаны."
+
+#: bot/handler/view_media/photos.py:39
+msgid "📂 You don't have any saved photos from the last week."
+msgstr "📂 У вас нет сохранённых фото за последнюю неделю."
+
+#: bot/handler/view_media/photos.py:48
+msgid "✅ All last week's photos have been shown."
+msgstr "✅ Все фото за последнюю неделю показаны."
+
+#: bot/handler/view_media/photos.py:65
+msgid "📂 You don't have any saved photos from the last month."
+msgstr "📂 У вас нет сохранённых фото за последний месяц."
+
+#: bot/handler/view_media/photos.py:74
+msgid "✅ All last month's photos have been shown."
+msgstr "✅ Все фото за последний месяц показаны."
+
+#: bot/handler/view_media/photos.py:91
+msgid "📂 You don't have any saved photos from the last 6 months."
+msgstr "📂 У вас нет сохранённых фото за последние 6 месяцев."
+
+#: bot/handler/view_media/photos.py:100
+msgid "✅ All last 6 months' photos have been shown."
+msgstr "✅ Все фото за последние 6 месяцев показаны."
+
+#: bot/handler/view_media/photos.py:115
+msgid "📂 You don't have any saved photos."
+msgstr "📂 У вас нет сохранённых фото."
+
+#: bot/handler/view_media/photos.py:124
+msgid "✅ All photos have been shown."
+msgstr "✅ Все фото показаны."
+
+#: bot/handler/view_media/texts.py:39
+msgid "📂 You don't have any saved text messages from the last week."
+msgstr "📂 У вас нет сохранённых текстовых сообщений за последнюю неделю."
+
+#: bot/handler/view_media/texts.py:48
+msgid "✅ All last week's text messages have been shown."
+msgstr "✅ Все текстовые сообщения за последнюю неделю показаны."
+
+#: bot/handler/view_media/texts.py:65
+msgid "📂 You don't have any saved text messages from the last month."
+msgstr "📂 У вас нет сохранённых текстовых сообщений за последний месяц."
+
+#: bot/handler/view_media/texts.py:74
+msgid "✅ All last month's text messages have been shown."
+msgstr "✅ Все текстовые сообщения за последний месяц показаны."
+
+#: bot/handler/view_media/texts.py:91
+msgid "📂 You don't have any saved text messages from the last 6 months."
+msgstr "📂 У вас нет сохранённых текстовых сообщений за последние 6 месяцев."
+
+#: bot/handler/view_media/texts.py:100
+msgid "✅ All last 6 months' text messages have been shown."
+msgstr "✅ Все текстовые сообщения за последние 6 месяцев показаны."
+
+#: bot/handler/view_media/texts.py:115
+msgid "📂 You don't have any saved text messages."
+msgstr "📂 У вас нет сохранённых текстовых сообщений."
+
+#: bot/handler/view_media/texts.py:124
+msgid "✅ All text messages have been shown."
+msgstr "✅ Все текстовые сообщения показаны."
+
+#: bot/handler/view_media/videos.py:39
+msgid "📂 You don't have any saved videos from the last week."
+msgstr "📂 У вас нет сохранённых видео за последнюю неделю."
+
+#: bot/handler/view_media/videos.py:48
+msgid "✅ All last week's videos have been shown."
+msgstr "✅ Все видео за последнюю неделю показаны."
+
+#: bot/handler/view_media/videos.py:65
+msgid "📂 You don't have any saved videos from the last month."
+msgstr "📂 У вас нет сохранённых видео за последний месяц."
+
+#: bot/handler/view_media/videos.py:74
+msgid "✅ All last month's videos have been shown."
+msgstr "✅ Все видео за последний месяц показаны."
+
+#: bot/handler/view_media/videos.py:91
+msgid "📂 You don't have any saved videos from the last 6 months."
+msgstr "📂 У вас нет сохранённых видео за последние 6 месяцев."
+
+#: bot/handler/view_media/videos.py:100
+msgid "✅ All last 6 months' videos have been shown."
+msgstr "✅ Все видео за последние 6 месяцев показаны."
+
+#: bot/handler/view_media/videos.py:115
+msgid "📂 You don't have any saved videos."
+msgstr "📂 У вас нет сохранённых видео."
+
+#: bot/handler/view_media/videos.py:124
+msgid "✅ All videos have been shown."
+msgstr "✅ Все видео показаны."
+
+#: bot/handler/view_media/voices.py:39
+msgid "📂 You don't have any saved voices from the last week."
+msgstr "📂 У вас нет сохранённых голосовых сообщений за последнюю неделю."
+
+#: bot/handler/view_media/voices.py:48
+msgid "✅ All last week's voices have been shown."
+msgstr "✅ Все голосовые сообщения за последнюю неделю показаны."
+
+#: bot/handler/view_media/voices.py:65
+msgid "📂 You don't have any saved voices from the last month."
+msgstr "📂 У вас нет сохранённых голосовых сообщений за последний месяц."
+
+#: bot/handler/view_media/voices.py:74
+msgid "✅ All last month's voices have been shown."
+msgstr "✅ Все голосовые сообщения за последний месяц показаны."
+
+#: bot/handler/view_media/voices.py:91
+msgid "📂 You don't have any saved voices from the last 6 months."
+msgstr "📂 У вас нет сохранённых голосовых сообщений за последние 6 месяцев."
+
+#: bot/handler/view_media/voices.py:100
+msgid "✅ All last 6 months' voices have been shown."
+msgstr "✅ Все голосовые сообщения за последние 6 месяцев показаны."
+
+#: bot/handler/view_media/voices.py:115
+msgid "📂 You don't have any saved voices."
+msgstr "📂 У вас нет сохранённых голосовых сообщений."
+
+#: bot/handler/view_media/voices.py:124
+msgid "✅ All voices have been shown."
+msgstr "✅ Все голосовые сообщения показаны."
+
+#: bot/settings/delete_account.py:19
+msgid ""
+"Do you really want to delete your account?\n"
+"After deleting, you won’t be able to restore it!"
+msgstr ""
+"Вы действительно хотите удалить свой аккаунт?\n"
+"После удаления его невозможно будет восстановить!"
+
+#: bot/settings/delete_account.py:33
+#, fuzzy
+msgid ""
+"🗑 Your account has been deleted successfully.You can use /start in order "
+"to get started again."
+msgstr "🗑 Ваш аккаунт успешно удалён. Используйте /start, чтобы начать заново."
+
+#: bot/settings/lang.py:42
+msgid "❌ Unknown language selection"
+msgstr "❌ Неизвестный выбор языка"
+
+#: bot/settings/lang.py:54
+msgid "✅ Language successfully changed!"
+msgstr "✅ Язык успешно изменён!"
+
+#: bot/settings/logout.py:31
+msgid "⚠️ An error occurred while logging out. Please try again."
+msgstr "⚠️ Произошла ошибка при выходе из системы. Пожалуйста, попробуйте снова."
+
+#: bot/settings/logout.py:35
+msgid ""
+"✅ You have been logged out. Use /login to log in again or /register to "
+"create a new account."
+msgstr ""
+"✅ Вы вышли из системы. Используйте /login для повторного входа или "
+"/register для создания нового аккаунта."
+
+#: bot/settings/password.py:19
+msgid "Enter your new password."
+msgstr "Введите новый пароль."
+
+#: bot/settings/password.py:35
+msgid "⚠️ User not found. Please register first."
+msgstr "⚠️ Пользователь не найден. Пожалуйста, сначала зарегистрируйтесь."
+
+#: bot/settings/password.py:43
+msgid "🔄 Password successfully changed."
+msgstr "🔄 Пароль успешно изменён."
+
+#: bot/settings/username.py:17
+msgid "Enter your new username"
+msgstr "Введите новое имя пользователя"
+
+#: bot/settings/username.py:27
+msgid "❌ User not found. Please contact support."
+msgstr "❌ Пользователь не найден. Пожалуйста, обратитесь в поддержку."
+
+#: bot/settings/username.py:31
+msgid "❌ This is already your current username."
+msgstr "❌ Это ваше текущее имя пользователя."
+
+#: bot/settings/username.py:36
+msgid ""
+"❌ Username is invalid or already taken. It must be 3–20 characters, "
+"contain only letters, numbers, and underscores."
+msgstr ""
+"❌ Имя пользователя недействительно или уже занято. Оно должно содержать "
+"от 3 до 20 символов, только буквы, цифры и подчеркивания."
+
+#: bot/settings/username.py:43
+msgid "✅ Username changed successfully to {username}!"
+msgstr "✅ Имя пользователя успешно изменено на {username}!"
+
+#~ msgid "✅ All contacts have been shown."
+#~ msgstr "✅ Все контакты показаны."
+

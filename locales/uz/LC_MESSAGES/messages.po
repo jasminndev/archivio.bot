@@ -1,0 +1,747 @@
+# Uzbek translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-09-13 21:10+0500\n"
+"PO-Revision-Date: 2025-09-13 21:10+0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uz\n"
+"Language-Team: uz <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: bot/middlewares.py:30 bot/middlewares.py:32
+msgid "⚠️ You are not logged in. Please /start to register."
+msgstr ""
+"⚠️ Siz tizimga kirmagansiz. Ro‘yxatdan o‘tish uchun iltimos /start "
+"buyrug‘ini bosing."
+
+#: bot/buttons/navigation.py:14 bot/handler/auth/login.py:47
+#: bot/handler/main_menu.py:12 bot/handler/main_menu.py:76
+msgid "🏠 Main menu"
+msgstr "🏠 Asosiy menyu"
+
+#: bot/buttons/navigation.py:26
+msgid "⏬ Add"
+msgstr "⏬ Qo'shish"
+
+#: bot/buttons/navigation.py:26 bot/handler/view_media/audios.py:22
+#: bot/handler/view_media/contacts.py:22 bot/handler/view_media/documents.py:22
+#: bot/handler/view_media/photos.py:22 bot/handler/view_media/texts.py:22
+#: bot/handler/view_media/videos.py:22 bot/handler/view_media/voices.py:22
+msgid "👀 View"
+msgstr "👀 Ko'rish"
+
+#: bot/buttons/navigation.py:27 bot/buttons/navigation.py:36
+#: bot/buttons/navigation.py:56 bot/buttons/navigation.py:64
+#: bot/buttons/navigation.py:70 bot/handler/main_menu.py:64
+msgid "⬅️ Back"
+msgstr "⬅️ Orqaga"
+
+#: bot/buttons/navigation.py:34
+msgid "Last week"
+msgstr "O‘tgan hafta"
+
+#: bot/buttons/navigation.py:34
+msgid "Last month"
+msgstr "O'tgan oy"
+
+#: bot/buttons/navigation.py:35
+msgid "Last 6 months"
+msgstr "Oxirgi 6 oy"
+
+#: bot/buttons/navigation.py:35
+msgid "All"
+msgstr "Hammasi"
+
+#: bot/buttons/navigation.py:43 bot/handler/main_menu.py:18
+msgid "🖼 Photos"
+msgstr "🖼 Rasmlar"
+
+#: bot/buttons/navigation.py:43 bot/handler/main_menu.py:24
+msgid "🎥 Videos"
+msgstr "🎥 Videolar"
+
+#: bot/buttons/navigation.py:43 bot/handler/main_menu.py:30
+msgid "📄 Documents"
+msgstr "📄 Hujjatlar"
+
+#: bot/buttons/navigation.py:44 bot/handler/main_menu.py:36
+msgid "✉️ Text messages"
+msgstr "✉️ Xabarlar"
+
+#: bot/buttons/navigation.py:44 bot/handler/main_menu.py:48
+msgid "🎵 Audios"
+msgstr "🎵 Audiolar"
+
+#: bot/buttons/navigation.py:44 bot/handler/main_menu.py:54
+msgid "👤 Contacts"
+msgstr "👤 Kontaktlar"
+
+#: bot/buttons/navigation.py:45 bot/handler/main_menu.py:42
+msgid "🎙 Voice messages"
+msgstr "🎙 Ovozli xabarlar"
+
+#: bot/buttons/navigation.py:45
+msgid "📞 Contact us"
+msgstr "📞 Biz bilan bog‘lanish"
+
+#: bot/buttons/navigation.py:46 bot/handler/main_menu.py:82
+#: bot/settings/delete_account.py:42
+msgid "⚙️ Settings"
+msgstr "⚙️ Sozlamalar"
+
+#: bot/buttons/navigation.py:53
+msgid "👤 Change username"
+msgstr "👤 Foydalanuvchi nomini o‘zgartirish"
+
+#: bot/buttons/navigation.py:53
+msgid "🔢 Change password"
+msgstr "🔢 Parolni o‘zgartirish"
+
+#: bot/buttons/navigation.py:54
+msgid "🏳️ Change language"
+msgstr "🏳️ Tilni o'zgartirish"
+
+#: bot/buttons/navigation.py:54
+msgid "🏌🏻‍♀️ Delete account"
+msgstr "🏌🏻‍♀️ Hisobni o‘chirish"
+
+#: bot/buttons/navigation.py:55
+msgid "🚫 Logout"
+msgstr "🚫 Chiqish"
+
+#: bot/buttons/navigation.py:63
+msgid "✅ Done"
+msgstr "✅ Bajarildi"
+
+#: bot/handler/lang.py:27 bot/settings/lang.py:23
+msgid "🌐 Please choose a language:"
+msgstr "🌐 Iltimos tilni tanlang"
+
+#: bot/handler/lang.py:65
+msgid ""
+"🤖 Welcome, {full_name}!\n"
+"\n"
+"In this bot, you can store photos, videos, documents and etc.\n"
+"\n"
+"Use the following commands to use the service:\n"
+"\n"
+"🔹 /register — to register\n"
+"🔹 /login — to login\n"
+"\n"
+"Use the /help command to get assistance."
+msgstr ""
+"🤖 Xush kelibsiz, {full_name}!\n"
+"\n"
+"Ushbu botda siz rasmlar, videolar, hujjatlar va shunga o'xshash "
+"narsalarni saqlashingiz mumkin.\n"
+"\n"
+"Xizmatdan foydalanish uchun quyidagi buyruqlardan foydalaning:\n"
+"\n"
+"🔹 /register — ro‘yxatdan o‘tish\n"
+"🔹 /login — tizimga kirish\n"
+"\n"
+"Yordam olish uchun /help buyrug‘idan foydalaning."
+
+#: bot/handler/lang.py:77
+msgid "🔄 Change the language"
+msgstr "🔄 Tilni o'zgartirish"
+
+#: bot/handler/lang.py:88
+msgid "Unknown language selection"
+msgstr "Noma'lum til tanlandi"
+
+#: bot/handler/main_menu.py:63
+msgid "👮🏻‍♀️ Admin"
+msgstr ""
+
+#: bot/handler/main_menu.py:68
+msgid "Click the button to contact ⬇️"
+msgstr "Bog‘lanish uchun tugmani bosing ⬇️"
+
+#: bot/handler/main_menu.py:74
+msgid "Back to main menu"
+msgstr "Asosiy menuga qaytish"
+
+#: bot/handler/add_media/audios.py:25
+msgid ""
+"📸 Please send the audios you want to save. After finishing, click the '✅ "
+"Done' button!"
+msgstr ""
+"📸 Iltimos, saqlamoqchi bo‘lgan audiodorilaringizni yuboring. "
+"Tugatganingizdan so‘ng '✅ Bajarildi' tugmasini bosing!"
+
+#: bot/handler/add_media/audios.py:33 bot/handler/add_media/contacts.py:32
+#: bot/handler/add_media/documents.py:34 bot/handler/add_media/photos.py:34
+#: bot/handler/add_media/texts.py:32 bot/handler/add_media/videos.py:33
+#: bot/handler/add_media/voices.py:33 bot/handler/view_media/audios.py:31
+#: bot/handler/view_media/audios.py:57 bot/handler/view_media/audios.py:83
+#: bot/handler/view_media/audios.py:109 bot/handler/view_media/contacts.py:31
+#: bot/handler/view_media/contacts.py:64 bot/handler/view_media/contacts.py:97
+#: bot/handler/view_media/contacts.py:130
+#: bot/handler/view_media/documents.py:31
+#: bot/handler/view_media/documents.py:57
+#: bot/handler/view_media/documents.py:83
+#: bot/handler/view_media/documents.py:109 bot/handler/view_media/photos.py:31
+#: bot/handler/view_media/photos.py:57 bot/handler/view_media/photos.py:83
+#: bot/handler/view_media/photos.py:109 bot/handler/view_media/texts.py:31
+#: bot/handler/view_media/texts.py:57 bot/handler/view_media/texts.py:83
+#: bot/handler/view_media/texts.py:109 bot/handler/view_media/videos.py:31
+#: bot/handler/view_media/videos.py:57 bot/handler/view_media/videos.py:83
+#: bot/handler/view_media/videos.py:109 bot/handler/view_media/voices.py:31
+#: bot/handler/view_media/voices.py:57 bot/handler/view_media/voices.py:83
+#: bot/handler/view_media/voices.py:109 bot/settings/logout.py:22
+msgid "⚠️ User not found. Please start with /start first."
+msgstr "⚠️ Foydalanuvchi topilmadi. Iltimos, avval /start buyrug‘idan foydalaning."
+
+#: bot/handler/add_media/audios.py:48 bot/handler/add_media/documents.py:50
+msgid "After finishing, click the '✅ Done' button!"
+msgstr "Tugatganingizdan so‘ng '✅ Bajarildi' tugmasini bosing!"
+
+#: bot/handler/add_media/audios.py:62 bot/handler/add_media/contacts.py:51
+#: bot/handler/add_media/texts.py:47 bot/handler/add_media/videos.py:48
+#: bot/handler/add_media/videos.py:64 bot/handler/add_media/voices.py:48
+#: bot/handler/add_media/voices.py:64
+msgid "✅ You can send more or click the '✅ Done' button!"
+msgstr "✅ Yana yuborish yoki '✅ Bajarildi' tugmasini bosishingiz mumkin!"
+
+#: bot/handler/add_media/audios.py:71
+msgid "❗️You didn't send audios!"
+msgstr "❗️Siz audio yubormadingiz!"
+
+#: bot/handler/add_media/audios.py:76 bot/handler/add_media/contacts.py:65
+#: bot/handler/add_media/documents.py:80 bot/handler/add_media/photos.py:88
+#: bot/handler/add_media/texts.py:61 bot/handler/add_media/videos.py:79
+#: bot/handler/add_media/voices.py:79
+msgid "⚠️ User ID not found. Please start again."
+msgstr "⚠️ Foydalanuvchi ID raqami topilmadi. Iltimos, qaytadan boshlang."
+
+#: bot/handler/add_media/audios.py:89
+msgid "⚠️ An error occurred while saving a audio. Please try again."
+msgstr "⚠️ Audio saqlashda xatolik yuz berdi. Iltimos, qayta urinib ko‘ring."
+
+#: bot/handler/add_media/audios.py:94
+msgid "✅ All audios saved! Thank you!"
+msgstr "✅ Barcha audios saqlandi! Rahmat!"
+
+#: bot/handler/add_media/audios.py:100
+msgid "❗️Please, Send the audios or click the '✅ Done' button"
+msgstr "❗️Iltimos, audio fayllarni yuboring yoki '✅ Bajarildi' tugmasini bosing."
+
+#: bot/handler/add_media/contacts.py:24
+msgid ""
+"📸 Please send the contacts you want to save. After finishing, click the "
+"'✅ Done' button!"
+msgstr ""
+"📸 Iltimos, saqlamoqchi bo‘lgan kontaktlaringizni yuboring. "
+"Tugatganingizdan so‘ng '✅ Bajarildi' tugmasini bosing!"
+
+#: bot/handler/add_media/contacts.py:60
+msgid "❗️You didn't send contacts!"
+msgstr "❗️Siz kontakt yubormadingiz!"
+
+#: bot/handler/add_media/contacts.py:80
+msgid "⚠️ An error occurred while saving a contact. Please try again."
+msgstr "⚠️ Kontaktni saqlashda xatolik yuz berdi. Iltimos, qayta urinib ko‘ring."
+
+#: bot/handler/add_media/contacts.py:85
+msgid "✅ All contacts saved! Thank you!"
+msgstr "✅ Barcha kontaktlar saqlandi! Rahmat!"
+
+#: bot/handler/add_media/contacts.py:92
+msgid "❗️Please, Send the contacts or click the '✅ Done' button!"
+msgstr "❗️Iltimos, kontaktlarni yuboring yoki '✅ Bajarildi' tugmasini bosing!"
+
+#: bot/handler/add_media/documents.py:26
+msgid ""
+"📸 Please send the documents you want to save. After finishing, click the "
+"'✅ Done' button!"
+msgstr ""
+"📸 Iltimos, saqlamoqchi bo‘lgan hujjatlaringizni yuboring. "
+"Tugatganingizdan so‘ng '✅ Bajarildi' tugmasini bosing!"
+
+#: bot/handler/add_media/documents.py:65 bot/handler/add_media/photos.py:50
+#: bot/handler/add_media/photos.py:73
+msgid "You can send more or click the '✅ Done' button!"
+msgstr "Yana yuborishingiz yoki '✅ Bajarildi' tugmasini bosishingiz mumkin!"
+
+#: bot/handler/add_media/documents.py:75
+msgid "❗️You didn't send documents!"
+msgstr "❗️Siz hujjat yubormadingiz!"
+
+#: bot/handler/add_media/documents.py:90
+msgid "⚠️ An error occurred while saving a document. Please try again."
+msgstr "⚠️ Hujjatni saqlashda xatolik yuz berdi. Iltimos, qayta urinib ko‘ring."
+
+#: bot/handler/add_media/documents.py:95
+msgid "✅ All documents saved! Thank you!"
+msgstr "✅ Barcha hujjatlar saqlandi! Rahmat!"
+
+#: bot/handler/add_media/photos.py:26
+msgid ""
+"📸 Please send the photos you want to save. After finishing, click the '✅ "
+"Done' button!"
+msgstr ""
+"📸 Iltimos, saqlamoqchi bo‘lgan rasmlaringizni yuboring. Tugatganingizdan "
+"so‘ng '✅ Bajarildi' tugmasini bosing!"
+
+#: bot/handler/add_media/photos.py:83
+msgid "❗️You didn't send photos!"
+msgstr "❗️Siz rasm yubormadingiz!"
+
+#: bot/handler/add_media/photos.py:101
+msgid "⚠️ An error occurred while saving a photo. Please try again."
+msgstr "⚠️ Rasmni saqlashda xatolik yuz berdi. Iltimos, qayta urinib ko‘ring."
+
+#: bot/handler/add_media/photos.py:106
+msgid "✅ All photos saved! Thank you!"
+msgstr "✅ Barcha rasmlar saqlandi! Rahmat!"
+
+#: bot/handler/add_media/photos.py:116
+msgid "❗️Please, Send the photos or click the '✅ Done' button!"
+msgstr "❗️Iltimos, rasmlarni yuboring yoki '✅ Bajarildi' tugmasini bosing!"
+
+#: bot/handler/add_media/texts.py:23
+msgid ""
+"📝 Please send the text messages you want to save. After finishing, click "
+"the '✅ Done' button!"
+msgstr ""
+"📝 Iltimos, saqlamoqchi bo‘lgan xabarlaringizni yuboring. Tugatganingizdan"
+" so‘ng '✅ Bajarildi' tugmasini bosing!"
+
+#: bot/handler/add_media/texts.py:56
+msgid "❗️You didn't send any text messages!"
+msgstr "❗️Siz hech qanday matn xabari yubormadingiz!"
+
+#: bot/handler/add_media/texts.py:74
+msgid "⚠️ An error occurred while saving a text message. Please try again."
+msgstr "⚠️ Xabarni saqlashda xatolik yuz berdi. Iltimos, qayta urinib ko‘ring."
+
+#: bot/handler/add_media/texts.py:79
+msgid "✅ All text messages saved! Thank you!"
+msgstr "✅ Barcha xabarlar saqlandi! Rahmat!"
+
+#: bot/handler/add_media/texts.py:86
+msgid "❗️Please send text messages or click the '✅ Done' button!"
+msgstr "❗️Iltimos, xabarlarni yuboring yoki '✅ Bajarildi' tugmasini bosing!"
+
+#: bot/handler/add_media/videos.py:24
+msgid ""
+"📸 Please send the videos you want to save. After finishing, click the '✅ "
+"Done' button!"
+msgstr ""
+"📸 Iltimos, saqlamoqchi bo‘lgan videolaringizni yuboring. Tugatganingizdan"
+" so‘ng '✅ Bajarildi' tugmasini bosing!"
+
+#: bot/handler/add_media/videos.py:74
+msgid "❗️You didn't send any videos!"
+msgstr "❗️Siz hech qanday video yubormadingiz!"
+
+#: bot/handler/add_media/videos.py:93
+msgid "⚠️ An error occurred while saving a video. Please try again."
+msgstr "⚠️ Video saqlashda xatolik yuz berdi. Iltimos, qayta urinib ko‘ring."
+
+#: bot/handler/add_media/videos.py:98
+msgid "✅ All videos saved! Thank you!"
+msgstr "✅ Barcha videolar saqlandi! Rahmat!"
+
+#: bot/handler/add_media/videos.py:105
+msgid "❗️Please send videos or click the '✅ Done' button!"
+msgstr "❗️Iltimos, videolarni yuboring yoki '✅ Bajarildi' tugmasini bosing!"
+
+#: bot/handler/add_media/voices.py:24
+#, fuzzy
+msgid ""
+"🎙️ Please send the voice messages you want to save. After finishing, "
+"click the '✅ Done' button!"
+msgstr ""
+"🎙️ Iltimos, saqlamoqchi bo‘lgan ovozli xabarlardan yuboring. "
+"Tugatganingizdan so‘ng '✅ Bajarildi' tugmasini bosing!"
+
+#: bot/handler/add_media/voices.py:74
+msgid "❗️You didn't send any voice messages!"
+msgstr "❗️Siz hech qanday ovozli xabar yubormadingiz!"
+
+#: bot/handler/add_media/voices.py:93
+msgid "⚠️ An error occurred while saving a voice message. Please try again."
+msgstr ""
+"⚠️ Ovozli xabarni saqlashda xatolik yuz berdi. Iltimos, qayta urinib "
+"ko‘ring."
+
+#: bot/handler/add_media/voices.py:98
+msgid "✅ All voice messages saved! Thank you!"
+msgstr "✅ Barcha ovozli xabarlar saqlandi! Rahmat!"
+
+#: bot/handler/add_media/voices.py:105
+msgid "❗️Please send voice messages or click the '✅ Done' button!"
+msgstr "❗️Iltimos, ovozli xabarlarni yuboring yoki '✅ Bajarildi' tugmasini bosing!"
+
+#: bot/handler/auth/login.py:15
+msgid "📝 Please, enter your username"
+msgstr "📝 Iltimos, foydalanuvchi nomingizni kiriting"
+
+#: bot/handler/auth/login.py:23
+msgid "🔒 Now, enter your password. "
+msgstr "🔒 Endi, parolingizni kiriting."
+
+#: bot/handler/auth/login.py:37
+msgid "❌ No such user found! Please try again. Enter a valid username."
+msgstr ""
+"❌ Bunday foydalanuvchi topilmadi! Iltimos, qayta urinib ko‘ring. To‘g‘ri "
+"foydalanuvchi nomini kiriting."
+
+#: bot/handler/auth/login.py:42
+msgid "❌ Invalid password! Please try again. Enter a valid password."
+msgstr ""
+"❌ Parol noto‘g‘ri! Iltimos, qayta urinib ko‘ring. To‘g‘ri parolni "
+"kiriting."
+
+#: bot/handler/auth/login.py:51
+msgid "✅ You have successfully logged in."
+msgstr "✅ Siz tizimga muvaffaqiyatli kirdingiz."
+
+#: bot/handler/auth/register.py:41
+msgid "✅ You are already registered!"
+msgstr "✅ Siz allaqachon ro‘yxatdan o‘tgansiz!"
+
+#: bot/handler/auth/register.py:45
+msgid "📝 Enter your username"
+msgstr "📝 Foydalanuvchi nomingizni kiriting"
+
+#: bot/handler/auth/register.py:53
+msgid "❌ This username is already taken. Please choose another."
+msgstr "❌ Bu foydalanuvchi nomi band. Iltimos, boshqasini tanlang."
+
+#: bot/handler/auth/register.py:59
+msgid ""
+"🔒 Create a password.\n"
+"\n"
+"It must be at least 6 characters long and contain both letters and "
+"numbers."
+msgstr ""
+"🔒 Parol yarating.\n"
+"\n"
+"U kamida 6 ta belgidan iborat bo‘lishi va harflar hamda raqamlarni o‘z "
+"ichiga olishi kerak."
+
+#: bot/handler/auth/register.py:69 bot/settings/password.py:28
+msgid ""
+"❌ Password must be at least 6 characters long and contain both letters "
+"and numbers. Please create another."
+msgstr ""
+"❌ Parol kamida 6 ta belgidan iborat bo‘lishi va harflar hamda raqamlarni "
+"o‘z ichiga olishi kerak. Iltimos, boshqasini yarating."
+
+#: bot/handler/auth/register.py:96
+msgid "⚠️ An error occurred while registering. Please try again later."
+msgstr ""
+"⚠️ Ro‘yxatdan o‘tishda xatolik yuz berdi. Iltimos, keyinroq qayta urinib "
+"ko‘ring."
+
+#: bot/handler/auth/register.py:101
+msgid ""
+"🎉 You have successfully registered!\n"
+"\n"
+"Now, you can use /login command to log in"
+msgstr ""
+"🎉 Siz muvaffaqiyatli ro‘yxatdan o‘tdingiz!\n"
+"\n"
+"Tizimga kirish uchun /login buyrug‘idan foydalanishingiz mumkin"
+
+#: bot/handler/view_media/audios.py:39
+msgid "📂 You don't have any saved audios from the last week."
+msgstr "📂 Sizda o‘tgan haftadan saqlangan hech qanday audio yo‘q."
+
+#: bot/handler/view_media/audios.py:48
+msgid "✅ All last week's audios have been shown."
+msgstr "✅ O‘tgan haftadagi barcha audiolar ko‘rsatildi."
+
+#: bot/handler/view_media/audios.py:65
+msgid "📂 You don't have any saved audios from the last month."
+msgstr "📂 Sizda o‘tgan oydan saqlangan hech qanday audio yo‘q."
+
+#: bot/handler/view_media/audios.py:74
+msgid "✅ All last month's audios have been shown."
+msgstr "✅ O‘tgan oydagi barcha audiolar ko‘rsatildi."
+
+#: bot/handler/view_media/audios.py:91
+msgid "📂 You don't have any saved audios from the last 6 months."
+msgstr "📂 Sizda o‘tgan 6 oydan saqlangan hech qanday audio yo‘q."
+
+#: bot/handler/view_media/audios.py:100
+msgid "✅ All last 6 months' audios have been shown."
+msgstr "✅ O‘tgan 6 oydagi barcha audiolar ko‘rsatildi."
+
+#: bot/handler/view_media/audios.py:115
+msgid "📂 You don't have any saved audios."
+msgstr "📂 Sizda saqlangan hech qanday audio yo‘q."
+
+#: bot/handler/view_media/audios.py:124
+msgid "✅ All audios have been shown."
+msgstr "✅ Barcha audiolar ko‘rsatildi."
+
+#: bot/handler/view_media/contacts.py:39
+msgid "📂 You don't have any saved contacts from the last week."
+msgstr "📂 Sizda o‘tgan haftadan saqlangan hech qanday kontakt yo‘q."
+
+#: bot/handler/view_media/contacts.py:53 bot/handler/view_media/contacts.py:86
+#: bot/handler/view_media/contacts.py:119
+#: bot/handler/view_media/contacts.py:150
+msgid "✅ All last week's contacts have been shown."
+msgstr "✅ O‘tgan haftadagi barcha kontaktlar ko‘rsatildi."
+
+#: bot/handler/view_media/contacts.py:72
+msgid "📂 You don't have any saved contacts from the last month."
+msgstr "📂 Sizda o‘tgan oydan saqlangan hech qanday kontakt yo‘q."
+
+#: bot/handler/view_media/contacts.py:105
+msgid "📂 You don't have any saved contacts from the last 6 months."
+msgstr "📂 Sizda o‘tgan 6 oydan saqlangan hech qanday kontakt yo‘q."
+
+#: bot/handler/view_media/contacts.py:136
+msgid "📂 You don't have any saved contacts."
+msgstr "📂 Sizda saqlangan hech qanday kontakt yo‘q."
+
+#: bot/handler/view_media/documents.py:39
+msgid "📂 You don't have any saved documents from the last week."
+msgstr "📂 Sizda o‘tgan haftadan saqlangan hech qanday hujjat yo‘q."
+
+#: bot/handler/view_media/documents.py:48
+msgid "✅ All last week's documents have been shown."
+msgstr "✅ O‘tgan haftadagi barcha hujjatlar ko‘rsatildi."
+
+#: bot/handler/view_media/documents.py:65
+msgid "📂 You don't have any saved documents from the last month."
+msgstr "📂 Sizda o‘tgan oydan saqlangan hech qanday hujjat yo‘q."
+
+#: bot/handler/view_media/documents.py:74
+msgid "✅ All last month's documents have been shown."
+msgstr "✅ O‘tgan oydagi barcha hujjatlar ko‘rsatildi."
+
+#: bot/handler/view_media/documents.py:91
+msgid "📂 You don't have any saved documents from the last 6 months."
+msgstr "📂 Sizda o‘tgan 6 oydan saqlangan hech qanday hujjat yo‘q."
+
+#: bot/handler/view_media/documents.py:100
+msgid "✅ All last 6 months' documents have been shown."
+msgstr "✅ O‘tgan 6 oydagi barcha hujjatlar ko‘rsatildi."
+
+#: bot/handler/view_media/documents.py:115
+msgid "📂 You don't have any saved documents."
+msgstr "📂 Sizda saqlangan hech qanday hujjat yo‘q."
+
+#: bot/handler/view_media/documents.py:124
+msgid "✅ All documents have been shown."
+msgstr "✅ Barcha hujjatlar ko‘rsatildi."
+
+#: bot/handler/view_media/photos.py:39
+msgid "📂 You don't have any saved photos from the last week."
+msgstr "📂 Sizda o‘tgan haftadan saqlangan hech qanday rasm yo‘q."
+
+#: bot/handler/view_media/photos.py:48
+msgid "✅ All last week's photos have been shown."
+msgstr "✅ O‘tgan haftadagi barcha rasmlar ko‘rsatildi."
+
+#: bot/handler/view_media/photos.py:65
+msgid "📂 You don't have any saved photos from the last month."
+msgstr "📂 Sizda o‘tgan oydan saqlangan hech qanday rasm yo‘q."
+
+#: bot/handler/view_media/photos.py:74
+msgid "✅ All last month's photos have been shown."
+msgstr "✅ O‘tgan oydagi barcha rasmlar ko‘rsatildi."
+
+#: bot/handler/view_media/photos.py:91
+msgid "📂 You don't have any saved photos from the last 6 months."
+msgstr "📂 Sizda o‘tgan 6 oydan saqlangan hech qanday rasm yo‘q."
+
+#: bot/handler/view_media/photos.py:100
+msgid "✅ All last 6 months' photos have been shown."
+msgstr "✅ O‘tgan 6 oydagi barcha rasmlar ko‘rsatildi."
+
+#: bot/handler/view_media/photos.py:115
+msgid "📂 You don't have any saved photos."
+msgstr "📂 Sizda saqlangan hech qanday rasm yo‘q."
+
+#: bot/handler/view_media/photos.py:124
+msgid "✅ All photos have been shown."
+msgstr "✅ Barcha rasmlar ko‘rsatildi."
+
+#: bot/handler/view_media/texts.py:39
+msgid "📂 You don't have any saved text messages from the last week."
+msgstr "📂 Sizda o‘tgan haftadan saqlangan hech qanday xabar yo‘q."
+
+#: bot/handler/view_media/texts.py:48
+msgid "✅ All last week's text messages have been shown."
+msgstr "✅ O‘tgan haftadagi barcha xabarlar ko‘rsatildi."
+
+#: bot/handler/view_media/texts.py:65
+msgid "📂 You don't have any saved text messages from the last month."
+msgstr "📂 Sizda o‘tgan oydan saqlangan hech qanday xabar yo‘q."
+
+#: bot/handler/view_media/texts.py:74
+msgid "✅ All last month's text messages have been shown."
+msgstr "✅ O‘tgan oydagi barcha xabarlar ko‘rsatildi."
+
+#: bot/handler/view_media/texts.py:91
+msgid "📂 You don't have any saved text messages from the last 6 months."
+msgstr "📂 Sizda o‘tgan 6 oydan saqlangan hech qanday xabar yo‘q."
+
+#: bot/handler/view_media/texts.py:100
+msgid "✅ All last 6 months' text messages have been shown."
+msgstr "✅ O‘tgan 6 oydagi barcha xabarlar ko‘rsatildi."
+
+#: bot/handler/view_media/texts.py:115
+msgid "📂 You don't have any saved text messages."
+msgstr "📂 Sizda saqlangan hech qanday xabar yo‘q."
+
+#: bot/handler/view_media/texts.py:124
+msgid "✅ All text messages have been shown."
+msgstr "✅ Barcha xabarlar ko‘rsatildi."
+
+#: bot/handler/view_media/videos.py:39
+msgid "📂 You don't have any saved videos from the last week."
+msgstr "📂 Sizda o‘tgan haftadan saqlangan hech qanday video yo‘q."
+
+#: bot/handler/view_media/videos.py:48
+msgid "✅ All last week's videos have been shown."
+msgstr "✅ O‘tgan haftadagi barcha videolar ko‘rsatildi."
+
+#: bot/handler/view_media/videos.py:65
+msgid "📂 You don't have any saved videos from the last month."
+msgstr "📂 Sizda o‘tgan oydan saqlangan hech qanday video yo‘q."
+
+#: bot/handler/view_media/videos.py:74
+msgid "✅ All last month's videos have been shown."
+msgstr "✅ O‘tgan oydagi barcha videolar ko‘rsatildi."
+
+#: bot/handler/view_media/videos.py:91
+msgid "📂 You don't have any saved videos from the last 6 months."
+msgstr "📂 Sizda o‘tgan 6 oydan saqlangan hech qanday video yo‘q."
+
+#: bot/handler/view_media/videos.py:100
+msgid "✅ All last 6 months' videos have been shown."
+msgstr "✅ O‘tgan 6 oydagi barcha videolar ko‘rsatildi."
+
+#: bot/handler/view_media/videos.py:115
+msgid "📂 You don't have any saved videos."
+msgstr "📂 Sizda saqlangan hech qanday video yo‘q."
+
+#: bot/handler/view_media/videos.py:124
+msgid "✅ All videos have been shown."
+msgstr "✅ Barcha videolar ko‘rsatildi."
+
+#: bot/handler/view_media/voices.py:39
+msgid "📂 You don't have any saved voices from the last week."
+msgstr "📂 Sizda o‘tgan haftadan saqlangan hech qanday ovozli xabar yo‘q."
+
+#: bot/handler/view_media/voices.py:48
+msgid "✅ All last week's voices have been shown."
+msgstr "✅ O‘tgan haftadagi barcha ovozli xabarlar ko‘rsatildi."
+
+#: bot/handler/view_media/voices.py:65
+msgid "📂 You don't have any saved voices from the last month."
+msgstr "📂 Sizda o‘tgan oydan saqlangan hech qanday ovozli xabar yo‘q."
+
+#: bot/handler/view_media/voices.py:74
+msgid "✅ All last month's voices have been shown."
+msgstr "✅ O‘tgan oydagi barcha ovozli xabarlar ko‘rsatildi."
+
+#: bot/handler/view_media/voices.py:91
+msgid "📂 You don't have any saved voices from the last 6 months."
+msgstr "📂 Sizda o‘tgan 6 oydan saqlangan hech qanday ovozli xabar yo‘q."
+
+#: bot/handler/view_media/voices.py:100
+msgid "✅ All last 6 months' voices have been shown."
+msgstr "✅ O‘tgan 6 oydagi barcha ovozli xabarlar ko‘rsatildi."
+
+#: bot/handler/view_media/voices.py:115
+msgid "📂 You don't have any saved voices."
+msgstr "📂 Sizda saqlangan hech qanday ovozli xabar yo‘q."
+
+#: bot/handler/view_media/voices.py:124
+msgid "✅ All voices have been shown."
+msgstr "✅ Barcha ovozli xabarlar ko‘rsatildi."
+
+#: bot/settings/delete_account.py:19
+msgid ""
+"Do you really want to delete your account?\n"
+"After deleting, you won’t be able to restore it!"
+msgstr ""
+"Haqiqatan ham akkauntingizni o‘chirib tashlamoqchimisiz?\n"
+"O‘chirilgandan so‘ng uni tiklay olmaysiz!"
+
+#: bot/settings/delete_account.py:33
+#, fuzzy
+msgid ""
+"🗑 Your account has been deleted successfully.You can use /start in order "
+"to get started again."
+msgstr ""
+"🗑 Akkauntingiz muvaffaqiyatli o‘chirildi.\n"
+"Qayta boshlash uchun /start buyrug‘idan foydalanishingiz mumkin."
+
+#: bot/settings/lang.py:42
+msgid "❌ Unknown language selection"
+msgstr "❌ Noma’lum til tanlandi"
+
+#: bot/settings/lang.py:54
+msgid "✅ Language successfully changed!"
+msgstr "✅ Til muvaffaqiyatli o‘zgartirildi!"
+
+#: bot/settings/logout.py:31
+msgid "⚠️ An error occurred while logging out. Please try again."
+msgstr "⚠️ Tizimdan chiqishda xatolik yuz berdi. Iltimos, qayta urinib ko‘ring."
+
+#: bot/settings/logout.py:35
+msgid ""
+"✅ You have been logged out. Use /login to log in again or /register to "
+"create a new account."
+msgstr ""
+"✅ Siz tizimdan chiqdingiz. Qayta kirish uchun /login, yangi akkaunt "
+"yaratish uchun esa /register buyrug‘idan foydalaning."
+
+#: bot/settings/password.py:19
+msgid "Enter your new password."
+msgstr "Yangi parolingizni kiriting."
+
+#: bot/settings/password.py:35
+msgid "⚠️ User not found. Please register first."
+msgstr "⚠️ Foydalanuvchi topilmadi. Iltimos, avval ro‘yxatdan o‘ting."
+
+#: bot/settings/password.py:43
+msgid "🔄 Password successfully changed."
+msgstr "🔄 Parol muvaffaqiyatli o‘zgartirildi."
+
+#: bot/settings/username.py:17
+msgid "Enter your new username"
+msgstr "Yangi foydalanuvchi nomingizni kiriting"
+
+#: bot/settings/username.py:27
+msgid "❌ User not found. Please contact support."
+msgstr "❌ Foydalanuvchi topilmadi. Iltimos, yordam xizmatiga murojaat qiling."
+
+#: bot/settings/username.py:31
+msgid "❌ This is already your current username."
+msgstr "❌ Bu sizning joriy foydalanuvchi nomingiz."
+
+#: bot/settings/username.py:36
+msgid ""
+"❌ Username is invalid or already taken. It must be 3–20 characters, "
+"contain only letters, numbers, and underscores."
+msgstr ""
+"❌ Foydalanuvchi nomi noto‘g‘ri yoki band qilingan. U 3–20 ta belgidan "
+"iborat bo‘lishi va faqat harflar, raqamlar hamda pastki chiziqlardan "
+"iborat bo‘lishi kerak."
+
+#: bot/settings/username.py:43
+msgid "✅ Username changed successfully to {username}!"
+msgstr "✅ Foydalanuvchi nomi muvaffaqiyatli {username} ga o‘zgartirildi!"
+
