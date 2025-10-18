@@ -1,0 +1,28 @@
+version: '2.39.0'
+
+services:
+  bot:
+    build: .
+    image: archivio_bot:alpine
+    container_name: archivio
+    restart: always
+    env_file:
+      - .env
+    command: [ "python3", "main.py" ]
+
+    depends_on:
+      - db
+
+  db:
+    image: postgres:alpine
+    container_name: db_archivio_bot
+    restart: always
+    ports:
+      - '5433:5433'
+    environment:
+      POSTGRES_PASSWORD: 1111
+    volumes:
+      - db_data:/var/lib/postgres
+
+volumes:
+  db_data:
