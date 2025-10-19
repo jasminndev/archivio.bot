@@ -18,6 +18,7 @@ logger = logging.getLogger(__name__)
 
 user_locks = defaultdict(asyncio.Lock)
 
+
 @router_contact.message(SectorStates.contact, F.text == __("⏬ Add"))
 async def add_contact_handler(message: Message, state: FSMContext):
     await message.answer(
@@ -31,6 +32,7 @@ async def add_contact_handler(message: Message, state: FSMContext):
     else:
         await message.answer(_("⚠️ User not found. Please start with /start first."))
         await state.clear()
+
 
 @router_contact.message(SectorStates.add_contact, F.contact, F.media_group_id == None)
 async def handle_contact(message: Message, state: FSMContext):
@@ -50,6 +52,7 @@ async def handle_contact(message: Message, state: FSMContext):
         if not data.get("reminder_sent"):
             await message.answer(_("✅ You can send more or click the '✅ Done' button!"))
             await state.update_data(reminder_sent=True)
+
 
 @router_contact.message(SectorStates.add_contact, F.text == "✅ Done")
 async def handle_done_button(message: Message, state: FSMContext):
@@ -85,6 +88,7 @@ async def handle_done_button(message: Message, state: FSMContext):
         _("✅ All contacts saved! Thank you!"),
         reply_markup=get_back_keyboard()
     )
+
 
 @router_contact.message(SectorStates.add_contact)
 async def not_contact_warning(message: Message):

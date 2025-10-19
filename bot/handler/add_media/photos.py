@@ -112,5 +112,5 @@ async def handle_done_button(message: Message, state: FSMContext):
 async def not_photo_warning(message: Message):
     if not (message.photo or (
             message.forward_from and message.document and message.document.mime_type and message.document.mime_type.startswith(
-            'image/')) or message.text == "✅ Done"):
+        'image/')) or message.text == "✅ Done"):
         await message.answer(_("❗️Please, Send the photos or click the '✅ Done' button!"))

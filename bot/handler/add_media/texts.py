@@ -17,6 +17,7 @@ logger = logging.getLogger(__name__)
 
 user_locks = defaultdict(asyncio.Lock)
 
+
 @router_text_message.message(SectorStates.text_message, F.text == __("⏬ Add"))
 async def add_text_message_handler(message: Message, state: FSMContext):
     await message.answer(
@@ -32,6 +33,7 @@ async def add_text_message_handler(message: Message, state: FSMContext):
         await message.answer(_("⚠️ User not found. Please start with /start first."))
         await state.clear()
 
+
 @router_text_message.message(SectorStates.add_text_message, F.text & (F.text != "✅ Done"))
 async def handle_single_text_message(message: Message, state: FSMContext):
     user_id = message.chat.id
@@ -46,6 +48,7 @@ async def handle_single_text_message(message: Message, state: FSMContext):
             if not data.get("reminder_sent"):
                 await message.answer(_("✅ You can send more or click the '✅ Done' button!"))
                 await state.update_data(reminder_sent=True)
+
 
 @router_text_message.message(SectorStates.add_text_message, F.text == "✅ Done")
 async def handle_done_button(message: Message, state: FSMContext):
@@ -79,6 +82,7 @@ async def handle_done_button(message: Message, state: FSMContext):
         _("✅ All text messages saved! Thank you!"),
         reply_markup=get_back_keyboard()
     )
+
 
 @router_text_message.message(SectorStates.add_text_message)
 async def not_text_message_warning(message: Message):

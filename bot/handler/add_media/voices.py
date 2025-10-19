@@ -18,6 +18,7 @@ logger = logging.getLogger(__name__)
 
 user_locks = defaultdict(asyncio.Lock)
 
+
 @router_voice.message(SectorStates.voice, F.text == __("⏬ Add"))
 async def add_voice_handler(message: Message, state: FSMContext):
     await message.answer(
@@ -32,6 +33,7 @@ async def add_voice_handler(message: Message, state: FSMContext):
     else:
         await message.answer(_("⚠️ User not found. Please start with /start first."))
         await state.clear()
+
 
 @router_voice.message(SectorStates.add_voice, F.media_group_id, F.voice)
 @media_group_handler
@@ -49,6 +51,7 @@ async def handle_media_group_voices(messages: list[Message], state: FSMContext):
             )
             await state.update_data(reminder_sent=True)
 
+
 @router_voice.message(SectorStates.add_voice, F.voice, F.media_group_id == None)
 async def handle_single_voice(message: Message, state: FSMContext):
     user_id = message.chat.id
@@ -64,6 +67,7 @@ async def handle_single_voice(message: Message, state: FSMContext):
                 _("✅ You can send more or click the '✅ Done' button!")
             )
             await state.update_data(reminder_sent=True)
+
 
 @router_voice.message(SectorStates.add_voice, F.text == "✅ Done")
 async def handle_done_button(message: Message, state: FSMContext):
@@ -98,6 +102,7 @@ async def handle_done_button(message: Message, state: FSMContext):
         _("✅ All voice messages saved! Thank you!"),
         reply_markup=get_back_keyboard()
     )
+
 
 @router_voice.message(SectorStates.add_voice)
 async def not_voice_warning(message: Message):

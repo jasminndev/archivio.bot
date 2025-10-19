@@ -1,5 +1,5 @@
-import logging
 import asyncio
+import logging
 from collections import defaultdict
 
 from aiogram import F
@@ -19,6 +19,7 @@ logger = logging.getLogger(__name__)
 
 user_locks = defaultdict(asyncio.Lock)
 
+
 @router_audio.message(SectorStates.audio, F.text == __("⏬ Add"))
 async def add_audio_handler(message: Message, state: FSMContext):
     await message.answer(
@@ -32,6 +33,7 @@ async def add_audio_handler(message: Message, state: FSMContext):
     else:
         await message.answer(_("⚠️ User not found. Please start with /start first."))
         await state.clear()
+
 
 @router_audio.message(F.media_group_id, F.audio)
 @media_group_handler
@@ -48,6 +50,7 @@ async def handle_media_group_audios(messages: list[Message], state: FSMContext):
             await messages[-1].answer(_("After finishing, click the '✅ Done' button!"))
             await state.update_data(reminder_sent=True)
 
+
 @router_audio.message(SectorStates.add_audio, F.audio, F.media_group_id == None)
 async def handle_single_audio(message: Message, state: FSMContext):
     user_id = message.chat.id
@@ -61,6 +64,7 @@ async def handle_single_audio(message: Message, state: FSMContext):
         if not data.get("reminder_sent"):
             await message.answer(_("✅ You can send more or click the '✅ Done' button!"))
             await state.update_data(reminder_sent=True)
+
 
 @router_audio.message(SectorStates.add_audio, F.text == "✅ Done")
 async def handle_done_button(message: Message, state: FSMContext):
@@ -94,6 +98,7 @@ async def handle_done_button(message: Message, state: FSMContext):
         _("✅ All audios saved! Thank you!"),
         reply_markup=get_back_keyboard()
     )
+
 
 @router_audio.message(SectorStates.add_audio)
 async def not_audio_warning(message: Message):
